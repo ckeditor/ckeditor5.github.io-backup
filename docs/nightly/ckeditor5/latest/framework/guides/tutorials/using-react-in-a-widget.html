@@ -317,7 +317,10 @@ module.exports = {
                     {
                         loader: &apos;style-loader&apos;,
                         options: {
-                            injectType: &apos;singletonStyleTag&apos;
+                            injectType: &apos;singletonStyleTag&apos;,
+                            attributes: {
+                                &apos;data-cke&apos;: true
+                            }
                         }
                     },
                     {

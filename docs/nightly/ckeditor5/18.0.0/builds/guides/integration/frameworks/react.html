@@ -374,7 +374,10 @@ yarn add @babel/plugin-transform-react-jsx @babel/plugin-transform-react-jsx-sel
         {
             loader: &apos;style-loader&apos;,
             options: {
-                injectType: &apos;singletonStyleTag&apos;
+                injectType: &apos;singletonStyleTag&apos;,
+                attributes: {
+                    &apos;data-cke&apos;: true
+                }
             }
         },
         {
@@ -567,7 +570,10 @@ new UglifyJsWebpackPlugin( {
         {
             loader: &apos;style-loader&apos;,
             options: {
-                injectType: &apos;singletonStyleTag&apos;
+                injectType: &apos;singletonStyleTag&apos;,
+                attributes: {
+                    &apos;data-cke&apos;: true
+                }
             }
         },
         {
