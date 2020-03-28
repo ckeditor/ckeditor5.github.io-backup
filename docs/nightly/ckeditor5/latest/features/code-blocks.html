@@ -239,7 +239,7 @@
 <div class="live-snippet"><textarea id="snippet-highlight">
 	&lt;h2>Getting started with CKEditor 5&lt;/h2>
 	&lt;p>First, create an HTML element with the initial content:&lt;/p>
-&lt;pre>&lt;code class="language-xml">&lt;div id="editor">
+&lt;pre>&lt;code class="language-html">&lt;div id="editor">
 	&lt;p&gt;Here goes the initial content of the editor.&lt;/p&gt;
 &lt;/div>&lt;/code>&lt;/pre>
 
@@ -264,13 +264,13 @@
 <p>Each code block can be assigned a programming language. The language of the code block is represented as a CSS class of the <code>&lt;code&gt;</code> element, both when editing and in the editor data:</p>
 <pre class="highlight"><code class="html">&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;window.alert( &apos;Hello world!&apos; )&lt;/code&gt;&lt;/pre&gt;
 </code></pre>
-<p>It is possible to configure which languages are available to the users. You can use the <a href="../api/module_code-block_codeblock-CodeBlockConfig.html#member-languages"><code>codeBlock.languages</code></a> configuration and define your own languages. For example, the following editor supports only two languages (CSS and XML/HTML):</p>
+<p>It is possible to configure which languages are available to the users. You can use the <a href="../api/module_code-block_codeblock-CodeBlockConfig.html#member-languages"><code>codeBlock.languages</code></a> configuration and define your own languages. For example, the following editor supports only two languages (CSS and HTML):</p>
 <pre class="highlight"><code class="js">ClassicEditor
     .create( document.querySelector( &apos;#editor&apos; ), {
         codeBlock: {
             languages: [
                 { language: &apos;css&apos;, label: &apos;CSS&apos; },
-                { language: &apos;xml&apos;, label: &apos;HTML/XML&apos; }
+                { language: &apos;html&apos;, label: &apos;HTML&apos; }
             ]
         }
     } )
@@ -279,7 +279,7 @@
 </code></pre>
 <div class="live-snippet"><div id="snippet-custom-languages">
 	<p>Put some text in the <code>&lt;body&gt;</code>:</p>
-<pre><code class="language-xml"><body>Hello world!</body></code></pre>
+<pre><code class="language-html"><body>Hello world!</body></code></pre>
 	<p>Then set the font color:</p>
 <pre><code class="language-css">body { color: red }</code></pre>
 </div>
@@ -372,13 +372,14 @@ ClassicEditor
     { language: &apos;cpp&apos;, label: &apos;C++&apos; },
     { language: &apos;css&apos;, label: &apos;CSS&apos; },
     { language: &apos;diff&apos;, label: &apos;Diff&apos; },
-    { language: &apos;xml&apos;, label: &apos;HTML/XML&apos; },
+    { language: &apos;html&apos;, label: &apos;HTML&apos; },
     { language: &apos;java&apos;, label: &apos;Java&apos; },
     { language: &apos;javascript&apos;, label: &apos;JavaScript&apos; },
     { language: &apos;php&apos;, label: &apos;PHP&apos; },
     { language: &apos;python&apos;, label: &apos;Python&apos; },
     { language: &apos;ruby&apos;, label: &apos;Ruby&apos; },
     { language: &apos;typescript&apos;, label: &apos;TypeScript&apos; },
+    { language: &apos;xml&apos;, label: &apos;XML&apos; }
 ]
 </code></pre>
 <p><strong>Note</strong>: If you execute the command with a specific <code>language</code> when the selection is anchored in a code block, and use the additional <code>forceValue: true</code> parameter, it will update the language of this particular block.</p>
