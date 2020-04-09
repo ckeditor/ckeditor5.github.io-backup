@@ -350,7 +350,7 @@
         // ...
         link: {
             decorators: {
-                addTargetToExternalLinks: {
+                openInNewTab: {
                     mode: &apos;manual&apos;,
                     label: &apos;Open in a new tab&apos;,
                     attributes: {
@@ -399,6 +399,15 @@
                     label: &apos;Downloadable&apos;,
                     attributes: {
                         download: &apos;file&apos;
+                    }
+                },
+                openInNewTab: {
+                    mode: &apos;manual&apos;,
+                    label: &apos;Open in a new tab&apos;,
+                    defaultValue: true,			// This option will be selected by default.
+                    attributes: {
+                        target: &apos;_blank&apos;,
+                        rel: &apos;noopener noreferrer&apos;
                     }
                 }
             }

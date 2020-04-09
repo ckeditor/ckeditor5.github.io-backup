@@ -168,6 +168,8 @@
                                             <li>
                                               <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span></div>
                                               <ul class="tree__item-nested-list">
+                                                    <li><a href="../deep-dive/ui/focus-tracking.html">
+                                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span></div></a></li>
                                                     <li><a href="../deep-dive/ui/theme-customization.html">
                                                         <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span></div></a></li>
                                                     <li><a href="../deep-dive/ui/external-ui.html">
@@ -579,8 +581,8 @@ dropdownView.buttonView.on( &apos;execute&apos;, () =&gt; {
 } );
 </code></pre>
 <h2 id="keystrokes-and-focus-management"><a class="headerlink" href="#keystrokes-and-focus-management">#</a> Keystrokes and focus management</h2>
-<p><em>Coming soon&#x2026;</em></p>
 <p>The framework offers built&#x2013;in classes that help manage keystrokes and focus in the UI. They are particularly useful when it comes to bringing accessibility features to the application.</p>
+<div class="info-box notice"><p>If you want to know how the editor handles focus under the hood and what tools make it possible, check out the <a href="../deep-dive/ui/focus-tracking.html"><strong>&#x201C;Deep dive into focus tracking&#x201D;</strong></a> guide.</p></div>
 <h3 id="focus-tracker"><a class="headerlink" href="#focus-tracker">#</a> Focus tracker</h3>
 <p>The <a href="../../../api/module_utils_focustracker-FocusTracker.html"><code>FocusTracker</code></a> class can observe a number of HTML elements and determine if one of them is focused either by the user (clicking, typing) or using the <code>HTMLElement.focus()</code> DOM method.</p>
 <pre class="highlight"><code class="js">import FocusTracker from &apos;@ckeditor/ckeditor5-utils/src/focustracker&apos;;
@@ -603,6 +605,7 @@ focusTracker.add( viewInstance.element );
 } );
 </code></pre>
 <p>This information is useful when implementing a certain type of UI whose behavior depends on the focus, for example, contextual panels and floating balloons containing forms should hide when the user decides to abandon them.</p>
+<p>Learn more about the focus tracker class in the <a href="../deep-dive/ui/focus-tracking.html#using-the-focustracker-class">&#x201C;Deep dive into focus tracking&#x201D;</a> guide.</p>
 <h3 id="keystroke-handler"><a class="headerlink" href="#keystroke-handler">#</a> Keystroke handler</h3>
 <p>The <a href="../../../api/module_utils_keystrokehandler-KeystrokeHandler.html"><code>KeystrokeHandler</code></a> listens to the keystroke events fired by an HTML element or any of its descendants and executes pre&#x2013;defined actions when the keystroke is pressed. Usually, each <a href="#views">view</a> creates its own keystroke handler instance which takes care of the keystrokes fired by the elements the view has rendered.</p>
 <pre class="highlight"><code class="js">import KeystrokeHandler from &apos;@ckeditor/ckeditor5-utils/src/keystrokehandler&apos;;
@@ -707,6 +710,8 @@ keystrokeHandler.set( &apos;Ctrl+A&apos;, ( keyEvtData ) =&gt; {
                                               <li>
                                                 <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span></div>
                                                 <ul class="tree__item-nested-list">
+                                                        <li><a href="../deep-dive/ui/focus-tracking.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span></div></a></li>
                                                         <li><a href="../deep-dive/ui/theme-customization.html">
                                                             <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span></div></a></li>
                                                         <li><a href="../deep-dive/ui/external-ui.html">

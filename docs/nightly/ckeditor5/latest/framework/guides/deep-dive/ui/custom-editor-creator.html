@@ -168,6 +168,8 @@
                                             <li>
                                               <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span></div>
                                               <ul class="tree__item-nested-list">
+                                                    <li><a href="focus-tracking.html">
+                                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span></div></a></li>
                                                     <li><a href="theme-customization.html">
                                                         <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span></div></a></li>
                                                     <li><a href="external-ui.html">
@@ -346,7 +348,7 @@ class MultirootEditor extends Editor {
 mix( MultirootEditor, DataApiMixin );
 </code></pre>
 <h2 id="editorui-class"><a class="headerlink" href="#editorui-class">#</a> EditorUI class</h2>
-<p>The <code>*EditorUI</code> class is the main UI class which initializes UI components (the main view and the toolbar) and sets up mechanisms like focus tracker or placeholder management. The custom <code>*EditorUI</code> class should extend the <a href="../../../../api/module_core_editor_editorui-EditorUI.html">base <code>EditorUI</code> class</a> like below:</p>
+<p>The <code>*EditorUI</code> class is the main UI class which initializes UI components (the main view and the toolbar) and sets up mechanisms like <a href="focus-tracking.html#using-the-focustracker-class">focus tracker</a> or placeholder management. The custom <code>*EditorUI</code> class should extend the <a href="../../../../api/module_core_editor_editorui-EditorUI.html">base <code>EditorUI</code> class</a> like below:</p>
 <pre class="highlight"><code class="js">import EditorUI from &apos;@ckeditor/ckeditor5-core/src/editor/editorui&apos;;
 import enableToolbarKeyboardFocus from &apos;@ckeditor/ckeditor5-ui/src/toolbar/enabletoolbarkeyboardfocus&apos;;
 import normalizeToolbarConfig from &apos;@ckeditor/ckeditor5-ui/src/toolbar/normalizetoolbarconfig&apos;;
@@ -758,6 +760,8 @@ class MultirootEditorUIView extends EditorUIView {
                                               <li>
                                                 <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span></div>
                                                 <ul class="tree__item-nested-list">
+                                                        <li><a href="focus-tracking.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span></div></a></li>
                                                         <li><a href="theme-customization.html">
                                                             <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span></div></a></li>
                                                         <li><a href="external-ui.html">
