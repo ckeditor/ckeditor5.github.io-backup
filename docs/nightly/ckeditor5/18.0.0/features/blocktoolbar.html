@@ -263,7 +263,7 @@
 <p>To add this feature to your editor install the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-ui" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-ui</code></a> package:</p>
 <pre class="highlight"><code class="bash">npm install --save @ckeditor/ckeditor5-ui
 </code></pre>
-<p>And add it to your plugin list:</p>
+<p>Add the <code>BlockToolbar</code> to your plugin list and configure the feature using the <code>blockToolbar</code> property:</p>
 <pre class="highlight"><code class="js">import BlockToolbar from &apos;@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar&apos;;
 import HeadingButtonsUI from &apos;@ckeditor/ckeditor5-heading/src/headingbuttonsui&apos;;
 import ParagraphButtonUI from &apos;@ckeditor/ckeditor5-paragraph/src/paragraphbuttonui&apos;;
@@ -278,6 +278,29 @@ BalloonEditor
             &apos;|&apos;,
             &apos;blockQuote&apos;, &apos;imageUpload&apos;
         ],
+        toolbar: [ ... ]
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<p>You can also use the <code>shouldNotGroupWhenFull</code> option to prevent <a href="../api/module_core_editor_editorconfig-EditorConfig.html#member-toolbar">automatic items grouping</a> in the block toolbar:</p>
+<pre class="highlight"><code class="js">import BlockToolbar from &apos;@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar&apos;;
+import HeadingButtonsUI from &apos;@ckeditor/ckeditor5-heading/src/headingbuttonsui&apos;;
+import ParagraphButtonUI from &apos;@ckeditor/ckeditor5-paragraph/src/paragraphbuttonui&apos;;
+
+BalloonEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ BlockToolbar, ParagraphButtonUI, HeadingButtonsUI, ... ],
+        blockToolbar: {
+            items: [
+                &apos;paragraph&apos;, &apos;heading1&apos;, &apos;heading2&apos;, &apos;heading3&apos;,
+                &apos;|&apos;,
+                &apos;bulletedList&apos;, &apos;numberedList&apos;,
+                &apos;|&apos;,
+                &apos;blockQuote&apos;, &apos;imageUpload&apos;
+            ],
+            shouldNotGroupWhenFull: true
+        },
         toolbar: [ ... ]
     } )
     .then( ... )

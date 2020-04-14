@@ -182,7 +182,7 @@
                         </div>
                         <div class="collapsing-list__description">
                           <p class="collapsing-list__excerpt collapsing-list__excerpt--short">Represents a position in the model tree.</p>
-                                    <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-engine/blob/ff045099fdea35c2af90a6da3d1a546845aeb3ea/src/model/position.js#L19-L45" target="_blank" rel="noopener noreferrer">
+                                    <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-engine/blob/c208ce12cf33c4ac78488816cd980e6d16eb83f9/src/model/position.js#L17-L43" target="_blank" rel="noopener noreferrer">
                                         <svg viewBox="0 0 1024 1024">
                                           <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                         </svg>See source</a></div>
@@ -199,7 +199,7 @@
                         <div class="collapsing-list__description">
                           <p class="collapsing-list__excerpt collapsing-list__excerpt--short">A flag indicating whether this position is <code>&apos;before&apos;</code> or <code>&apos;after&apos;</code> or <code>&apos;same&apos;</code> as given position.
 If positions are in different roots <code>&apos;different&apos;</code> flag is returned.</p>
-                                    <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-engine/blob/ff045099fdea35c2af90a6da3d1a546845aeb3ea/src/model/position.js#L1027-L1032" target="_blank" rel="noopener noreferrer">
+                                    <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-engine/blob/c208ce12cf33c4ac78488816cd980e6d16eb83f9/src/model/position.js#L1035-L1040" target="_blank" rel="noopener noreferrer">
                                         <svg viewBox="0 0 1024 1024">
                                           <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                         </svg>See source</a></div>
@@ -213,10 +213,172 @@ If positions are in different roots <code>&apos;different&apos;</code> flag is r
                         <div class="collapsing-list__description">
                           <p class="collapsing-list__excerpt collapsing-list__excerpt--short">Represents how position is &quot;sticking&quot; with neighbour nodes. Used to define how position should be transformed (moved)
 in edge cases. Possible values: <code>&apos;toNone&apos;</code>, <code>&apos;toNext&apos;</code>, <code>&apos;toPrevious&apos;</code>.</p>
-                                    <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-engine/blob/ff045099fdea35c2af90a6da3d1a546845aeb3ea/src/model/position.js#L1034-L1059" target="_blank" rel="noopener noreferrer">
+                                    <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-engine/blob/c208ce12cf33c4ac78488816cd980e6d16eb83f9/src/model/position.js#L1042-L1067" target="_blank" rel="noopener noreferrer">
                                         <svg viewBox="0 0 1024 1024">
                                           <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                         </svg>See source</a></div>
+                        </div>
+                      </li>
+          </ul>
+          <h2 id="functions">Functions</h2>
+          <ul class="collapsing-list collapsing-list--filtered" data-type="functions">
+                      <li class="collapsing-list__item collapsing-list__item--visible" data-public="true">
+                        <div class="collapsing-list__term toggler--collapsed" id="static-function-getNodeAfterPosition">
+                          <h3><code><a class="member-name" href="#static-function-getNodeAfterPosition">getNodeAfterPosition</a>( position, positionParent, textNode ) &rarr;  <span><a class="collapsing-list__type" href="module_engine_model_node-Node.html">Node</a></span> | <span>null</span></code><span class="collapsing-list__dev-names" aria-hidden="true"><code>module:engine/model/position.getNodeAfterPosition</code></span>
+                          </h3>
+                          <p class="badges">
+<span class="badge badge--gray ">static</span>
+                          </p>
+                        </div>
+                        <div class="collapsing-list__description">
+                          <div class="collapsing-list__excerpt">
+                            <p>Returns the node after the given position.</p>
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-engine/blob/c208ce12cf33c4ac78488816cd980e6d16eb83f9/src/model/position.js#L1100-L1124" target="_blank" rel="noopener noreferrer">
+                                          <svg viewBox="0 0 1024 1024">
+                                            <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
+                                          </svg>See source</a></div>
+                          </div>
+                          <div class="collapsing-list__content">
+<p>This is a helper function optimized to reuse the position parent instance and the calculation of the text node at the
+specific position for performance reasons.</p>
+<p>Normally, you should use <a href="module_engine_model_position-Position.html#member-nodeAfter"><code>Position#nodeAfter</code></a>.
+If you start hitting performance issues with <a href="module_engine_model_position-Position.html#member-parent"><code>Position#parent</code></a> and/or
+<a href="module_engine_model_position-Position.html#member-textNode"><code>Position#textNode</code></a>
+check if your algorithm does not access those properties multiple times
+(which can happen directly or indirectly via other position properties).</p>
+<p>See https://github.com/ckeditor/ckeditor5/issues/6579 and https://github.com/ckeditor/ckeditor5/issues/6582.</p>
+<p>See also:</p>
+<ul>
+<li><a href="module_engine_model_position.html#static-function-getTextNodeAtPosition"><code>getTextNodeAtPosition</code></a></li>
+<li><a href="module_engine_model_position.html#static-function-getNodeBeforePosition"><code>getNodeBeforePosition</code></a></li>
+</ul>
+                            <h4>Parameters</h4>
+                                      <dl>
+                                        <dt><code>position
+                                            :
+ <span><a class="collapsing-list__type" href="module_engine_model_position-Position.html">Position</a></span></code></dt>
+                                        <dd>
+                                        </dd>
+                                        <dt><code>positionParent
+                                            :
+ <span><a class="collapsing-list__type" href="module_engine_model_element-Element.html">Element</a></span> | <span><a class="collapsing-list__type" href="module_engine_model_documentfragment-DocumentFragment.html">DocumentFragment</a></span></code></dt>
+                                        <dd><p>The parent of the
+given position.</p>
+                                        </dd>
+                                        <dt><code>textNode
+                                            :
+ <span><a class="collapsing-list__type" href="module_engine_model_text-Text.html">Text</a></span> | <span>null</span></code></dt>
+                                        <dd><p>Text node at the given position.</p>
+                                        </dd>
+                                      </dl>
+                            <h4>Returns</h4>
+                            <dl>
+                                        <dt><code><span><a class="collapsing-list__type" href="module_engine_model_node-Node.html">Node</a></span> | <span>null</span></code></dt>
+                                        <dd>
+                                        </dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="collapsing-list__item collapsing-list__item--visible" data-public="true">
+                        <div class="collapsing-list__term toggler--collapsed" id="static-function-getNodeBeforePosition">
+                          <h3><code><a class="member-name" href="#static-function-getNodeBeforePosition">getNodeBeforePosition</a>( position, positionParent, textNode ) &rarr;  <span><a class="collapsing-list__type" href="module_engine_model_node-Node.html">Node</a></span> | <span>null</span></code><span class="collapsing-list__dev-names" aria-hidden="true"><code>module:engine/model/position.getNodeBeforePosition</code></span>
+                          </h3>
+                          <p class="badges">
+<span class="badge badge--gray ">static</span>
+                          </p>
+                        </div>
+                        <div class="collapsing-list__description">
+                          <div class="collapsing-list__excerpt">
+                            <p>Returns the node before the given position.</p>
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-engine/blob/c208ce12cf33c4ac78488816cd980e6d16eb83f9/src/model/position.js#L1133-L1148" target="_blank" rel="noopener noreferrer">
+                                          <svg viewBox="0 0 1024 1024">
+                                            <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
+                                          </svg>See source</a></div>
+                          </div>
+                          <div class="collapsing-list__content">
+<p>Refer to <a href="module_engine_model_position.html#static-function-getNodeBeforePosition"><code>getNodeBeforePosition</code></a> for documentation on when to use this util method.</p>
+<p>See also:</p>
+<ul>
+<li><a href="module_engine_model_position.html#static-function-getTextNodeAtPosition"><code>getTextNodeAtPosition</code></a></li>
+<li><a href="module_engine_model_position.html#static-function-getNodeAfterPosition"><code>getNodeAfterPosition</code></a></li>
+</ul>
+                            <h4>Parameters</h4>
+                                      <dl>
+                                        <dt><code>position
+                                            :
+ <span><a class="collapsing-list__type" href="module_engine_model_position-Position.html">Position</a></span></code></dt>
+                                        <dd>
+                                        </dd>
+                                        <dt><code>positionParent
+                                            :
+ <span><a class="collapsing-list__type" href="module_engine_model_element-Element.html">Element</a></span> | <span><a class="collapsing-list__type" href="module_engine_model_documentfragment-DocumentFragment.html">DocumentFragment</a></span></code></dt>
+                                        <dd><p>The parent of the
+given position.</p>
+                                        </dd>
+                                        <dt><code>textNode
+                                            :
+ <span><a class="collapsing-list__type" href="module_engine_model_text-Text.html">Text</a></span> | <span>null</span></code></dt>
+                                        <dd><p>Text node at the given position.</p>
+                                        </dd>
+                                      </dl>
+                            <h4>Returns</h4>
+                            <dl>
+                                        <dt><code><span><a class="collapsing-list__type" href="module_engine_model_node-Node.html">Node</a></span> | <span>null</span></code></dt>
+                                        <dd>
+                                        </dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="collapsing-list__item collapsing-list__item--visible" data-public="true">
+                        <div class="collapsing-list__term toggler--collapsed" id="static-function-getTextNodeAtPosition">
+                          <h3><code><a class="member-name" href="#static-function-getTextNodeAtPosition">getTextNodeAtPosition</a>( position, positionParent ) &rarr;  <span><a class="collapsing-list__type" href="module_engine_model_text-Text.html">Text</a></span> | <span>null</span></code><span class="collapsing-list__dev-names" aria-hidden="true"><code>module:engine/model/position.getTextNodeAtPosition</code></span>
+                          </h3>
+                          <p class="badges">
+<span class="badge badge--gray ">static</span>
+                          </p>
+                        </div>
+                        <div class="collapsing-list__description">
+                          <div class="collapsing-list__excerpt">
+                            <p>Returns a text node at the given position.</p>
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-engine/blob/c208ce12cf33c4ac78488816cd980e6d16eb83f9/src/model/position.js#L1069-L1089" target="_blank" rel="noopener noreferrer">
+                                          <svg viewBox="0 0 1024 1024">
+                                            <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
+                                          </svg>See source</a></div>
+                          </div>
+                          <div class="collapsing-list__content">
+<p>This is a helper function optimized to reuse the position parent instance for performance reasons.</p>
+<p>Normally, you should use <a href="module_engine_model_position-Position.html#member-textNode"><code>Position#textNode</code></a>.
+If you start hitting performance issues with <a href="module_engine_model_position-Position.html#member-parent"><code>Position#parent</code></a>
+check if your algorithm does not access it multiple times (which can happen directly or indirectly via other position properties).</p>
+<p>See https://github.com/ckeditor/ckeditor5/issues/6579.</p>
+<p>See also:</p>
+<ul>
+<li><a href="module_engine_model_position.html#static-function-getNodeAfterPosition"><code>getNodeAfterPosition</code></a></li>
+<li><a href="module_engine_model_position.html#static-function-getNodeBeforePosition"><code>getNodeBeforePosition</code></a></li>
+</ul>
+                            <h4>Parameters</h4>
+                                      <dl>
+                                        <dt><code>position
+                                            :
+ <span><a class="collapsing-list__type" href="module_engine_model_position-Position.html">Position</a></span></code></dt>
+                                        <dd>
+                                        </dd>
+                                        <dt><code>positionParent
+                                            :
+ <span><a class="collapsing-list__type" href="module_engine_model_element-Element.html">Element</a></span> | <span><a class="collapsing-list__type" href="module_engine_model_documentfragment-DocumentFragment.html">DocumentFragment</a></span></code></dt>
+                                        <dd><p>The parent of the
+given position.</p>
+                                        </dd>
+                                      </dl>
+                            <h4>Returns</h4>
+                            <dl>
+                                        <dt><code><span><a class="collapsing-list__type" href="module_engine_model_text-Text.html">Text</a></span> | <span>null</span></code></dt>
+                                        <dd>
+                                        </dd>
+                            </dl>
+                          </div>
                         </div>
                       </li>
           </ul>
@@ -5676,7 +5838,6 @@ in edge cases. Possible values: <code>&apos;toNone&apos;</code>, <code>&apos;toN
     <footer class="footer">
       <p>&copy; 2003-2020 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
     </footer>
-    <meta content="-1" name="docsearch:custom_ranking">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
 docsearch({
 apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*',facetFilters:['tags: ckeditor5']},
