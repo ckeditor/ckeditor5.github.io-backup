@@ -240,17 +240,13 @@
           </div>
           <h1 class="main__content-title"><img src="../../../../../assets/1.2.4/img/book.svg" alt="guide">Code style
           </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#general">General</a></li><li><a href="#whitespace">Whitespace</a></li><li><a href="#indentation">Indentation</a></li><li><a href="#braces">Braces</a></li><li><a href="#blank-lines">Blank lines</a></li><li><a href="#multi-line-statements-and-calls">Multi-line statements and calls</a></li><li><a href="#strings">Strings</a></li><li><a href="#comments">Comments</a></li><li><a href="#linting">Linting</a></li><li><a href="#visibility-levels">Visibility levels</a><ol><li><a href="#accessibility">Accessibility</a></li></ol></li><li><a href="#getters">Getters</a></li><li><a href="#order-within-class-definition">Order within class definition</a></li><li><a href="#tests">Tests</a></li><li><a href="#naming">Naming</a><ol><li><a href="#javascript-code-names">JavaScript code names</a><ol><li><a href="#private-properties-and-methods">Private properties and methods</a></li><li><a href="#methods-and-functions">Methods and functions</a></li><li><a href="#properties-and-variables">Properties and variables</a></li></ol></li><li><a href="#shortcuts">Shortcuts</a></li><li><a href="#acronyms-and-proper-names">Acronyms and proper names</a></li><li><a href="#css-classes">CSS classes</a></li><li><a href="#id-attributes">ID attributes</a></li><li><a href="#file-names">File names</a><ol><li><a href="#examples">Examples</a></li><li><a href="#standard-files">Standard files</a></li></ol></li></ol></li></ol></nav>
-<p>The <a href="development-environment.html">CKEditor 5 development environment</a> has ESLint enabled both as a pre-commit hook and on CI which means that code style issues are automatically detected. Additionally, <code>.editorconfig</code> files are present in every repository to automatically adjust your IDEs settings (if it is configured to read them).</p>
-<p>However, here goes a quick summary of these rules.</p>
+<p><a href="development-environment.html">CKEditor 5 development environment</a> has ESLint enabled both as a pre-commit hook and on CI. This means that code style issues are detected automatically. Additionally, <code>.editorconfig</code> files are present in every repository to automatically adjust your IDEs settings (if it is configured to read them).</p>
+<p>Here comes a quick summary of these rules.</p>
 <h2 id="general"><a class="headerlink" href="#general">#</a> General</h2>
-<ul>
-<li><strong>LF for line endings</strong>. Never CRLF.</li>
-<li>Maximum recommended <strong>line length is 120 chars</strong>, but can&#x2019;t be longer than 140 chars.</li>
-</ul>
+<p><strong>LF for line endings</strong>. Never use CRLF.</p>
+<p>The recommended maximum <strong>line length is 120 characters</strong>. It cannot exceed 140 characters.</p>
 <h2 id="whitespace"><a class="headerlink" href="#whitespace">#</a> Whitespace</h2>
-<ul>
-<li><strong>No trailing spaces</strong>. Empty lines should not contain any spaces.</li>
-</ul>
+<p><strong>No trailing spaces</strong>. Empty lines should not contain any spaces.</p>
 <p>Whitespace <strong>inside parenthesis</strong> and <strong>before and after operators</strong>:</p>
 <pre class="highlight"><code class="js">function foo( a, b, c, d, e ) {
     if ( a &gt; b ) {
@@ -260,7 +256,7 @@
 
 foo( bar() );
 </code></pre>
-<p>No whitespace for <strong>empty parenthesis</strong>:</p>
+<p>No whitespace for an <strong>empty parenthesis</strong>:</p>
 <pre class="highlight"><code class="js">const a = () =&gt; {
     // Statements...
 };
@@ -277,10 +273,8 @@ for ( const i = 0; i &lt; 100; i++ ) {
 }
 </code></pre>
 <h2 id="indentation"><a class="headerlink" href="#indentation">#</a> Indentation</h2>
-<ul>
-<li>Indentation with <strong>TAB</strong>, for both code and comments. Never use spaces.</li>
-<li>If you want to have the code readable, set <strong>TAB</strong> to <strong>4 spaces</strong> in your IDE.</li>
-</ul>
+<p>Indentation with <strong>tab</strong>, for both code and comments. Never use spaces.</p>
+<p>If you want to have the code readable, set <strong>tab</strong> to <strong>4 spaces</strong> in your IDE.</p>
 <pre class="highlight"><code class="js">class Bar {
     a() {
         while ( b in a ) {
@@ -308,7 +302,7 @@ while (
     // Statements...
 }
 </code></pre>
-<div class="info-box notice"><p>We do our best to avoid complex conditions. As a rule of thumb, we first recommend finding a way to move the complexity out of the condition &#x2013; e.g. to a separate function with early returns for each &#x201C;sentence&#x201D; in such a condition.</p><p>However, overdoing things is not good as well and sometimes such a condition can be perfectly readable (which is the ultimate goal here).</p></div>
+<div class="info-box notice"><p>We do our best to avoid complex conditions. As a rule of thumb, we first recommend finding a way to move the complexity out of the condition, for example, to a separate function with early returns for each &#x201C;sentence&#x201D; in such a condition.</p><p>However, overdoing things is not good as well and sometimes such a condition can be perfectly readable (which is the ultimate goal here).</p></div>
 <h2 id="braces"><a class="headerlink" href="#braces">#</a> Braces</h2>
 <p>Braces <strong>start at the same line</strong> as the head statement and end aligned with it:</p>
 <pre class="highlight"><code class="js">function a() {
@@ -332,7 +326,7 @@ try {
 <h2 id="blank-lines"><a class="headerlink" href="#blank-lines">#</a> Blank lines</h2>
 <p>The code should read like a book, so put blank lines between &#x201C;paragraphs&#x201D; of code. This is an open and contextual rule, but some recommendations would be to separate the following sections:</p>
 <ul>
-<li>variable, classes and function declarations,</li>
+<li>variable, class and function declarations,</li>
 <li><code>if()</code>, <code>for()</code> and similar blocks,</li>
 <li>steps of an algorithm,</li>
 <li><code>return</code> statements,</li>
@@ -345,12 +339,12 @@ try {
         super( editor );
 
         /**
-         * Some docs...
+         * Some documentation...
          */
         this.foo = new Foo();
 
         /**
-         * Some docs...
+         * Some documentation...
          */
         this.isBar = false;
     }
@@ -405,13 +399,13 @@ try {
 <h2 id="multi-line-statements-and-calls"><a class="headerlink" href="#multi-line-statements-and-calls">#</a> Multi-line statements and calls</h2>
 <p>Whenever there is a multi-line function call:</p>
 <ul>
-<li>put the first param in a new line,</li>
-<li>put every param in a separate line indented by one tab,</li>
-<li>put the last closing parenthesis in new line, at the same indendation as the call beginning.</li>
+<li>Put the first parameter in a new line.</li>
+<li>Put every parameter in a separate line indented by one tab.</li>
+<li>Put the last closing parenthesis in a new line, at the same indendation level as the beginning of the call.</li>
 </ul>
 <p>Examples:</p>
 <pre class="highlight"><code class="js">const myObj = new MyClass(
-    &apos;Some long params&apos;,
+    &apos;Some long parameters&apos;,
     &apos;To make this&apos;,
     &apos;Multi line&apos;
 );
@@ -424,7 +418,7 @@ fooBar(
 
 fooBar(
     new MyClass(
-        &apos;Some long params&apos;,
+        &apos;Some long parameters&apos;,
         &apos;To make this&apos;,
         &apos;Multi line&apos;
     )
@@ -447,7 +441,7 @@ fooBar(
     )
 );
 </code></pre>
-<div class="info-box notice"><p>Note that the above examples are just showcasing how such function calls can be structured. However, it is best to avoid them.</p><p>It is generally recommended to avoid having functions that accept more than 3 arguments. Instead, it is better to wrap them in an object so all params can be named.</p><p>It is also recommended to split such long statements into multiple shorter ones (e.g. extract some longer params to separate variables).</p></div>
+<div class="info-box notice"><p>Note that the examples above are just showcasing how such function calls can be structured. However, it is best to avoid them.</p><p>It is generally recommended to avoid having functions that accept more than 3 arguments. Instead, it is better to wrap them in an object so all parameters can be named.</p><p>It is also recommended to split such long statements into multiple shorter ones, for example, by extracting some longer parameters to separate variables.</p></div>
 <h2 id="strings"><a class="headerlink" href="#strings">#</a> Strings</h2>
 <p>Use <strong>single quotes</strong>:</p>
 <pre class="highlight"><code class="js">const a = &apos;I\&apos;m an example for quotes&apos;;
@@ -458,7 +452,7 @@ fooBar(
     &apos;Line 2\n&apos; +
     &apos;Line 3&apos;;
 </code></pre>
-<p>or template strings can be used (note that lines 2nd and 3rd will be indented in this case):</p>
+<p>or template strings can be used (note that the 2nd and 3rd line will be indented in this case):</p>
 <pre class="highlight"><code class="js">const html =
     `Line 1
     Line 2
@@ -476,7 +470,7 @@ fooBar(
 <li>Comments start with a <strong>capital first letter</strong> and require a period at the end (since they are sentences).</li>
 <li>There must be a <strong>single space at the start</strong> of the text, right after the comment token.</li>
 </ul>
-<p><strong>Block comments</strong> (<code>/** ... */</code>) are used for <strong>documentation only</strong>. Asterisks aligned with space:</p>
+<p><strong>Block comments</strong> (<code>/** ... */</code>) are used for <strong>documentation only</strong>. Asterisks are aligned with space:</p>
 <pre class="highlight"><code class="js">/**
  * Documentation for the following method.
  *
@@ -487,14 +481,14 @@ someMethod() {
 }
 </code></pre>
 <p>All <strong>other comments</strong> use <strong>line comments</strong> (<code>//</code>):</p>
-<pre class="highlight"><code class="js">// Comment about the following statement.
+<pre class="highlight"><code class="js">// A comment about the following statement.
 foo();
 
 // Multiple line comments
 // go through several
 // line comments as well.
 </code></pre>
-<p><strong>Comments related to tickets/issues</strong>, should not describe the whole issue fully. A short description should be used, together with the ticket number in parenthesis:</p>
+<p><strong>Comments related to tickets or issues</strong> should not describe the whole issue fully. A short description should be used instead, together with the ticket number in parenthesis:</p>
 <pre class="highlight"><code class="js">// Do this otherwise because of a Safari bug. (#123)
 foo();
 </code></pre>
@@ -503,17 +497,17 @@ foo();
 <p>A couple of useful links:</p>
 <ul>
 <li><a href="https://eslint.org/docs/2.13.1/user-guide/configuring#disabling-rules-with-inline-comments" target="_blank" rel="noopener">Disabling ESLint with inline comments</a>.</li>
-<li><a href="https://github.com/ckeditor/ckeditor5-dev/blob/master/packages/eslint-config-ckeditor5/.eslintrc.js" target="_blank" rel="noopener">CKEditor 5&#x2019;s ESLint preset</a> (npm: <a href="http://npmjs.com/package/eslint-config-ckeditor5" target="_blank" rel="noopener"><code>eslint-config-ckeditor5</code></a>.</li>
-<li><a href="https://github.com/ckeditor/ckeditor5-dev/blob/master/packages/stylelint-config-ckeditor5/.stylelintrc" target="_blank" rel="noopener">CKEditor 5&#x2019;s stylelint preset</a> (npm: <a href="https://www.npmjs.com/package/stylelint-config-ckeditor5" target="_blank" rel="noopener"><code>stylelint-config-ckeditor5</code></a>).</li>
+<li><a href="https://github.com/ckeditor/ckeditor5-dev/blob/master/packages/eslint-config-ckeditor5/.eslintrc.js" target="_blank" rel="noopener">CKEditor 5 ESLint preset</a> (npm: <a href="http://npmjs.com/package/eslint-config-ckeditor5" target="_blank" rel="noopener"><code>eslint-config-ckeditor5</code></a>).</li>
+<li><a href="https://github.com/ckeditor/ckeditor5-dev/blob/master/packages/stylelint-config-ckeditor5/.stylelintrc" target="_blank" rel="noopener">CKEditor 5 stylelint preset</a> (npm: <a href="https://www.npmjs.com/package/stylelint-config-ckeditor5" target="_blank" rel="noopener"><code>stylelint-config-ckeditor5</code></a>).</li>
 </ul>
 <div class="info-box notice"><p>Avoid using automatic code formatters on existing code. It is fine to automatically format code that you are editing, but you should not be changing the formatting of the code that is already written to not pollute your PRs. You should also not rely solely on automatic corrections.</p></div>
 <h2 id="visibility-levels"><a class="headerlink" href="#visibility-levels">#</a> Visibility levels</h2>
-<p>Each class property (including methods, symbols, getters/setters) can be public, protected or private. The default visibility is public, so you should not (because there is no need) document that a property is public.</p>
+<p>Each class property (including methods, symbols, getters or setters) can be public, protected or private. The default visibility is public, so you should not document that a property is public &#x2014; there is no need to do this.</p>
 <p>Additional rules apply to private properties:</p>
 <ul>
-<li>names of private and protected properties which are exposed in a class prototype (or in any other way) should be prefixed with an underscore,</li>
-<li>when documenting a private variable which is not added to a class prototype (or exposed in any other way) then <code>//</code> comments should be used and using <code>@private</code> is not necessary ,</li>
-<li>symbol property (e.g. <code>this[ Symbol( &apos;symbolName&apos; ) ]</code>) should be documented as <code>@property {Type} _symbolName</code>.</li>
+<li>The names of private and protected properties that are exposed in a class prototype (or in any other way) should be prefixed with an underscore.</li>
+<li>When documenting a private variable that is not added to a class prototype (or exposed in any other way), <code>//</code> comments should be used and using <code>@private</code> is not necessary.</li>
+<li>A symbol property (e.g. <code>this[ Symbol( &apos;symbolName&apos; ) ]</code>) should be documented as <code>@property {Type} _symbolName</code>.</li>
 </ul>
 <p>Example:</p>
 <pre class="highlight"><code class="js">class Foo {
@@ -554,18 +548,44 @@ function doSomething() {
 }
 </code></pre>
 <h3 id="accessibility"><a class="headerlink" href="#accessibility">#</a> Accessibility</h3>
-<p>Properties accessibility:</p>
-<pre class="highlight"><code class>             | Class | Package | Subclass | World
-&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;
-@public      |   y   |    y    |    y     |   y
-&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;
-@protected   |   y   |    y    |    y     |   n
-&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;
-@private     |   y   |    n    |    n     |   n
-</code></pre>
-<p>(y &#x2013; accessible, n &#x2013; not accessible)</p>
-<p>For instance, a protected property is accessible from its own class in which it was defined, its whole package and from its subclasses (even if not in the same package).</p>
-<div class="info-box notice"><p>Protected properties/methods are often used for testability. Since tests are located in the same package as the code they can access these properties.</p></div>
+<p>The table below shows the accessibility of properties:</p>
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+	<thead>
+		<tr>
+			<th scope="row">&#xA0;</th>
+			<th scope="col">Class</th>
+			<th scope="col">Package</th>
+			<th scope="col">Subclass</th>
+			<th scope="col">World</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row" style="text-align: left;"><code>@public</code></th>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+		</tr>
+		<tr>
+			<th scope="row" style="text-align: left;"><code>@protected</code></th>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">no</td>
+		</tr>
+		<tr>
+			<th scope="row" style="text-align: left;"><code>@private</code></th>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">no</td>
+			<td style="text-align:center">no</td>
+			<td style="text-align:center">no</td>
+		</tr>
+	</tbody>
+</table>
+<p>(yes &#x2013; accessible, no &#x2013; not accessible)</p>
+<p>For instance, a protected property is accessible from its own class in which it was defined, from its whole package, and from its subclasses (even if they are not in the same package).</p>
+<div class="info-box notice"><p>Protected properties and methods are often used for testability. Since tests are located in the same package as the code, they can access these properties.</p></div>
 <h2 id="getters"><a class="headerlink" href="#getters">#</a> Getters</h2>
 <p>You can use ES6 getters to simplify class API:</p>
 <pre class="highlight"><code class="js">class Position {
@@ -575,35 +595,35 @@ function doSomething() {
     }
 }
 </code></pre>
-<p>Getter should feel like a natural property. There are several recommendations to follow when creating getters:</p>
+<p>A getter should feel like a natural property. There are several recommendations to follow when creating getters:</p>
 <ul>
-<li>they should be fast,</li>
-<li>they should not throw,</li>
-<li>they should not change object state,</li>
-<li>they should not return new instances of an object every time (so <code>foo.bar == foo.bar</code> is true); it is okay to create a new instance for the first call and cache it if it&#x2019;s possible.</li>
+<li>They should be fast.</li>
+<li>They should not throw.</li>
+<li>They should not change the object state.</li>
+<li>They should not return new instances of an object every time (so <code>foo.bar == foo.bar</code> is true). It is OK to create a new instance for the first call and cache it if it is possible.</li>
 </ul>
 <h2 id="order-within-class-definition"><a class="headerlink" href="#order-within-class-definition">#</a> Order within class definition</h2>
 <p>Within class definition the methods and properties should be ordered as follows:</p>
 <ol>
-<li>constructor,</li>
-<li>getters/setters,</li>
-<li>iterators,</li>
-<li>public instance methods,</li>
-<li>public static methods,</li>
-<li>protected instance methods,</li>
-<li>protected static methods,</li>
-<li>private instance methods,</li>
-<li>private static methods.</li>
+<li>Constructor.</li>
+<li>Getters and setters.</li>
+<li>Iterators.</li>
+<li>Public instance methods.</li>
+<li>Public static methods.</li>
+<li>Protected instance methods.</li>
+<li>Protected static methods.</li>
+<li>Private instance methods.</li>
+<li>Private static methods.</li>
 </ol>
-<p>Order within each group is left for the implementor.</p>
+<p>The order within each group is left for the implementor.</p>
 <h2 id="tests"><a class="headerlink" href="#tests">#</a> Tests</h2>
 <p>There are some special rules for tests.</p>
 <ul>
 <li>
-<p>Always use an outer describe in a test file - do not allow any globals, especially hooks (<code>beforeEach()</code>, <code>after()</code>, etc.) outside the outermost <code>describe()</code>.</p>
+<p>Always use an outer <code>describe()</code> in a test file. Do not allow any globals, especially hooks (<code>beforeEach()</code>, <code>after()</code>, etc.) outside the outermost <code>describe()</code>.</p>
 </li>
 <li>
-<p>The outer most <code>describe()</code> calls should create meaningful groups, so when all tests are run together a failing TC can be identified within the code base. For example:</p>
+<p>The outermost <code>describe()</code> calls should create meaningful groups, so when all tests are run together a failing TC can be identified within the code base. For example:</p>
 <pre class="highlight"><code class="js">describe( &apos;Editor&apos;, () =&gt; {
     describe( &apos;constructor()&apos;, () =&gt; {
         it( ... );
@@ -615,27 +635,27 @@ function doSomething() {
 <p>Using titles like &#x201C;utils&#x201D; is not fine as there are multiple utils in the entire project. &#x201C;Table utils&#x201D; would be better.</p>
 </li>
 <li>
-<p>Test descriptions (<code>it()</code>) should be written like documentation (what do we do and what should happen) &#x2013; e.g. &#x201C;the foo dialog closes when the x button is clicked&#x201D;. Also, &#x2018;&#x2026;case 1&#x2019;, &#x2018;&#x2026;case 2&#x2019; in test descriptions are not helpful.</p>
+<p>Test descriptions (<code>it()</code>) should be written like documentation (what you do and what should happen), e.g. &#x201C;the foo dialog closes when the X button is clicked&#x201D;. Also, &#x2018;&#x2026;case 1&#x2019;, &#x2018;&#x2026;case 2&#x2019; in test descriptions are not helpful.</p>
 </li>
 <li>
-<p>Avoid covering multiple cases under one <code>it()</code>. It is ok to have multiple assertions in one test, but not to test e.g. how method <code>foo()</code> works when it is called with 1, then with 2, then 3, etc. There should be a separate test for each case.</p>
+<p>Avoid covering multiple cases under one <code>it()</code>. It is OK to have multiple assertions in one test, but not to test e.g. how method <code>foo()</code> works when it is called with 1, then with 2, then 3, etc. There should be a separate test for each case.</p>
 </li>
 <li>
-<p>Most often, using words like &#x201C;correctly&#x201D;, &#x201C;works fine&#x201D; is a code smell. Thing about requirements &#x2013; when writing them you do not say that feature X should &#x201C;work fine&#x201D;. You document how it should work.</p>
+<p>Most often, using words like &#x201C;correctly&#x201D;, &#x201C;works fine&#x201D; is a code smell. Thing about the requirements &#x2014; when writing them you do not say that feature X should &#x201C;work fine&#x201D;. You document how it should work.</p>
 </li>
 <li>
 <p>Every test should clean after itself, including destroying all editors and removing all elements that have been added.</p>
 </li>
 <li>
-<p>Avoid using real timeouts. Use <a href="https://sinonjs.org/releases/v9.0.1/fake-timers/" target="_blank" rel="noopener">fake timers</a> instead <strong>when possible</strong>. Timeouts make test really slow.</p>
+<p>Avoid using real timeouts. Use <a href="https://sinonjs.org/releases/v9.0.1/fake-timers/" target="_blank" rel="noopener">fake timers</a> instead <strong>when possible</strong>. Timeouts make a test really slow.</p>
 </li>
 <li>
-<p>However, thinking about slow &#x2013; do not overoptimize (especially that performance is not a priority in tests). In most cases it is completely fine (and hence recommended) to create a separate editor for every <code>it()</code>.</p>
+<p>However, thinking about slow &#x2014; do not overoptimize (especially that performance is not a priority in tests). In most cases it is completely fine (and hence recommended) to create a separate editor for every <code>it()</code>.</p>
 </li>
 </ul>
 <h2 id="naming"><a class="headerlink" href="#naming">#</a> Naming</h2>
 <h3 id="javascript-code-names"><a class="headerlink" href="#javascript-code-names">#</a> JavaScript code names</h3>
-<p>Variable, functions, namespaces, parameters and all undocumented cases must be named in <a href="http://en.wikipedia.org/wiki/CamelCase" target="_blank" rel="noopener">lowerCamelCase</a>:</p>
+<p>Variables, functions, namespaces, parameters and all undocumented cases must be named in <a href="http://en.wikipedia.org/wiki/CamelCase" target="_blank" rel="noopener">lowerCamelCase</a>:</p>
 <pre class="highlight"><code class="js">let a;
 let myLongNamedVariable = true;
 
@@ -663,7 +683,7 @@ const a = new MyClass();
 something._doInternalTask();
 </code></pre>
 <h4 id="methods-and-functions"><a class="headerlink" href="#methods-and-functions">#</a> Methods and functions</h4>
-<p>Methods and functions are <strong>almost always</strong> verbs/actions:</p>
+<p>Methods and functions are <strong>almost always</strong> verbs or actions:</p>
 <pre class="highlight"><code class="js">// Good
 execute();
 this.getNextNumber()
@@ -695,38 +715,44 @@ this.id;
 this.env;
 </code></pre>
 <h3 id="acronyms-and-proper-names"><a class="headerlink" href="#acronyms-and-proper-names">#</a> Acronyms and proper names</h3>
-<p>Acronyms and, partially, proper names are naturally written in uppercase. This may stand against code style rules described above &#x2013; especially when there is a need to include acronym or proper name in variable or class name. In such case, one should follow these rules:</p>
+<p>Acronyms and, partially, proper names are naturally written in uppercase. This may stand against code style rules described above &#x2014; especially when there is a need to include an acronym or a proper name in a variable or class name. In such case, one should follow the following rules:</p>
 <ul>
-<li>acronyms:</li>
-<li>all lowercase if at the beginning of the variable name: <code>let domError</code></li>
-<li>default camel case at the beginning of the class name: <code>class DomError</code></li>
-<li>default camel case inside variable / class name: <code>function getDomError()</code></li>
-<li>proper names:</li>
-<li>all lowercase if at the beginning of the variable: <code>let ckeditorError</code></li>
-<li>original case if at the beginning of the class name: <code>class CKEditorError</code></li>
-<li>original case inside variable / class name: <code>function getCKEditorError()</code></li>
+<li>Acronyms:
+<ul>
+<li>All lowercase if at the beginning of the variable name: <code>let domError</code>.</li>
+<li>Default camel case at the beginning of the class name: <code>class DomError</code>.</li>
+<li>Default camel case inside the variable or class name: <code>function getDomError()</code>.</li>
 </ul>
-<p>However, two letter acronyms and proper names (if originally written uppercase) should be uppercase. So e.g. <code>getUI</code> (not <code>getUi</code>).</p>
+</li>
+<li>Proper names:
+<ul>
+<li>All lowercase if at the beginning of the variable: <code>let ckeditorError</code>.</li>
+<li>Original case if at the beginning of the class name: <code>class CKEditorError</code>.</li>
+<li>Original case inside the variable or class name: <code>function getCKEditorError()</code>.</li>
+</ul>
+</li>
+</ul>
+<p>However, two-letter acronyms and proper names (if originally written uppercase) should be uppercase. So e.g. <code>getUI</code> (not <code>getUi</code>).</p>
 <div class="info-box notice"><p>Two most frequently used acronyms which cause problems:</p><ul>
-<li><strong>DOM</strong> &#x2013; it should be e.g. <code>getDomNode()</code>,</li>
-<li><strong>HTML</strong> &#x2013; it should be e.g. <code>toHtml()</code>.</li>
+<li><strong>DOM</strong> &#x2013; It should be e.g. <code>getDomNode()</code>,</li>
+<li><strong>HTML</strong> &#x2013; It should be e.g. <code>toHtml()</code>.</li>
 </ul>
 </div>
 <h3 id="css-classes"><a class="headerlink" href="#css-classes">#</a> CSS classes</h3>
-<p>CSS class naming pattern is based on <a href="https://en.bem.info/" target="_blank" rel="noopener">BEM</a> methodology and code-style. All names are in lowercase with optional dash (<code>-</code>) between the words.</p>
-<p>Top&#x2013;level building <strong>blocks</strong> begin with mandatory <code>ck-</code> prefix:</p>
-<pre class="highlight"><code class="CSS">.ck-dialog
+<p>CSS class naming pattern is based on <a href="https://en.bem.info/" target="_blank" rel="noopener">BEM</a> methodology and code style. All names are in lowercase with an optional dash (<code>-</code>) between the words.</p>
+<p>Top&#x2013;level building <strong>blocks</strong> begin with a mandatory <code>ck-</code> prefix:</p>
+<pre class="highlight"><code class="css">.ck-dialog
 .ck-toolbar
 .ck-dropdown-menu
 </code></pre>
 <p><strong>Elements</strong> belonging to the block namespace are delimited by double underscore (<code>__</code>):</p>
-<pre class="highlight"><code class="CSS">.ck-dialog__header
+<pre class="highlight"><code class="css">.ck-dialog__header
 .ck-toolbar__group
 .ck-dropdown-menu__button-collapser
 </code></pre>
 <p><strong>Modifiers</strong> are delimited by a single underscore (<code>_</code>). Key-value modifiers<br>
-follow <code>block-or-element_key_value</code> naming pattern:</p>
-<pre class="highlight"><code class="CSS">/* Block modifier */
+follow the <code>block-or-element_key_value</code> naming pattern:</p>
+<pre class="highlight"><code class="css">/* Block modifier */
 .ck-dialog_hidden
 /* Element modifier */
 .ck-toolbar__group_collapsed
@@ -743,15 +769,15 @@ follow <code>block-or-element_key_value</code> naming pattern:</p>
 &lt;/div&gt;
 </code></pre>
 <h3 id="id-attributes"><a class="headerlink" href="#id-attributes">#</a> ID attributes</h3>
-<p>HTML ID attribute naming pattern follows <a href="#css-classes">CSS Classes</a> naming guidelines. Each ID must begin with <code>ck-</code> prefix and consist of dash&#x2013;separated (<code>-</code>) words in lowercase:</p>
+<p>HTML ID attribute naming pattern follows <a href="#css-classes">CSS classes</a> naming guidelines. Each ID must begin with the <code>ck-</code> prefix and consist of dash&#x2013;separated (<code>-</code>) words in lowercase:</p>
 <pre class="highlight"><code class="html">&lt;div id=&quot;ck&quot;&gt;...&lt;/div&gt;
 &lt;div id=&quot;ck-unique-div&quot;&gt;...&lt;/div&gt;
 &lt;div id=&quot;ck-a-very-long-unique-identifier&quot;&gt;...&lt;/div&gt;
 </code></pre>
 <h3 id="file-names"><a class="headerlink" href="#file-names">#</a> File names</h3>
-<p>File and directory names must follow a standard that make their syntax easy to predict:</p>
+<p>File and directory names must follow a standard that makes their syntax easy to predict:</p>
 <ul>
-<li>All lower-cased.</li>
+<li>All lowercase.</li>
 <li>Only alphanumeric characters are accepted.</li>
 <li>Words are separated by dashes (<code>-</code>) (<a href="https://en.wikipedia.org/wiki/Letter_case#Special_case_styles" target="_blank" rel="noopener">kebab-case</a>).
 <ul>

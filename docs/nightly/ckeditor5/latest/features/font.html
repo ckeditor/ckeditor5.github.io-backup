@@ -325,19 +325,19 @@
 </code></pre>
 <p>The CSS definition for the classes (presets) must be included in the web page styles where the edited content is rendered.</p>
 <p>Here is an example of the font size CSS classes:</p>
-<pre class="highlight"><code class="css">.text-tiny {
+<pre class="highlight"><code class="css">.ck-content .text-tiny {
     font-size: 0.7em;
 }
 
-.text-small {
+.ck-content .text-small {
     font-size: 0.85em;
 }
 
-.text-big {
+.ck-content .text-big {
     font-size: 1.4em;
 }
 
-.text-huge {
+.ck-content .text-huge {
     font-size: 1.8em;
 }
 </code></pre>
@@ -408,7 +408,7 @@
     .create( document.querySelector( &apos;#editor&apos; ), {
         fontSize: {
             options: [
-                // ...
+                // Numerical values.
             ],
             supportAllValues: true
         },
@@ -417,6 +417,7 @@
     .then( ... )
     .catch( ... );
 </code></pre>
+<div class="info-box notice notice__info"><p>This option can be used only in combination with <a href="#using-numerical-values">numerical values</a>.</p></div>
 <h2 id="configuring-the-font-color-and-font-background-color-features"><a class="headerlink" href="#configuring-the-font-color-and-font-background-color-features">#</a> Configuring the font color and font background color features</h2>
 <p>Both font color and font background color features are configurable and share the same configuration format.</p>
 <div class="info-box notice notice__info"><p>Please note that <a href="../api/module_font_fontcolor-FontColor.html">font color</a> and <a href="../api/module_font_fontbackgroundcolor-FontBackgroundColor.html">font background color</a> are separate plugins. They must be enabled and configured individually.</p></div>

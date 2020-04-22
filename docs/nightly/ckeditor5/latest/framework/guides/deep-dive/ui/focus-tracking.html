@@ -240,76 +240,76 @@
           </div>
           <h1 class="main__content-title"><img src="../../../../../../assets/1.2.4/img/book.svg" alt="guide">Deep dive into focus tracking
           </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#what-is-focus-and-why-it-matters-for-ckeditor">What is focus and why it matters for CKEditor?</a><ol><li><a href="#what-is-focus">What is focus?</a></li><li><a href="#focus-in-ckeditor">Focus in CKEditor</a></li></ol></li><li><a href="#focus-in-the-editor-engine">Focus in the editor engine</a><ol><li><a href="#checking-if-the-view-document-is-focused">Checking if the view document is focused</a></li><li><a href="#how-to-focus-the-editor">How to focus the editor?</a></li></ol></li><li><a href="#focus-in-the-editor-ui">Focus in the editor UI</a><ol><li><a href="#tools-and-architecture">Tools and architecture</a></li><li><a href="#implementing-focusable-ui-components">Implementing focusable UI components</a></li><li><a href="#using-the-focustracker-class">Using the FocusTracker class</a><ol><li><a href="#a-note-about-the-global-focus-tracker">A note about the global focus tracker</a></li><li><a href="#a-practical-example">A practical example</a></li></ol></li><li><a href="#using-the-keystrokehandler-class">Using the KeystrokeHandler class</a></li><li><a href="#using-the-focuscycler-class">Using the FocusCycler class</a></li><li><a href="#using-all-focus-helpers-together">Using all focus helpers together</a></li></ol></li><li><a href="#focus-state-analysis">Focus state analysis</a><ol><li><a href="#scenario">Scenario</a></li><li><a href="#conclusions">Conclusions</a></li></ol></li></ol></nav>
-<p><strong>Focus is where all the keyboard interactions (events) take place.</strong> It is an essential concept for any piece of a web page operated with a keyboard, be it a physical keyboard of your laptop or a software keyboard of your smartphone. And CKEditor being a rich text editor is no exception here.</p>
+<p><strong>Focus is where all the keyboard interactions (events) take place.</strong> It is an essential concept for any piece of a web page operated with a keyboard, be it a physical keyboard of your laptop or a software keyboard of your smartphone. And CKEditor 5 being a rich text editor is no exception here.</p>
 <h2 id="what-is-focus-and-why-it-matters-for-ckeditor"><a class="headerlink" href="#what-is-focus-and-why-it-matters-for-ckeditor">#</a> What is focus and why it matters for CKEditor?</h2>
 <h3 id="what-is-focus"><a class="headerlink" href="#what-is-focus">#</a> What is focus?</h3>
-<p>Every time you click a text field or an editor, it automatically prepares to accept your text. It is no longer just a static container for letters but something you can interact with using your keyboard. And you know it because you can see the familiar blinking caret somewhere inside of it. This subtle action called a <strong>focus change</strong> takes place hundreds of times every day as you navigate web pages, type your search queries, chat with your friends and fill in check out forms when online shopping.</p>
+<p>Every time you click a text field or an editor, it automatically prepares to accept your text. It is no longer just a static container for letters but something you can interact with using your keyboard. And you know it because you can see the familiar blinking caret somewhere inside of it. This subtle action called a <strong>focus change</strong> takes place hundreds of times every day as you navigate web pages, type your search queries, chat with your friends and fill in checkout forms when online shopping.</p>
 <p><img src="../../../../assets/img/framework-deep-dive-focus-form-example.gif" data-lightbox="true" alt="The animation showing the focus moving from one field to another when filling in the form." width="578"></p>
 <p>Focusing text fields feels so natural we usually do not give it much thought. But if it wasn&#x2019;t for that simple action&#x2026; there would be no way to type text. Where would it go if there was no focused field? Focus informs the software about your intentions and it is synonymous with the <strong>context</strong>.</p>
 <h3 id="focus-in-ckeditor"><a class="headerlink" href="#focus-in-ckeditor">#</a> Focus in CKEditor</h3>
 <p>But CKEditor is more than a simple text field. Yes, it has the main space where you type your text but other places also allow you to type, for instance, a link URL field or a form with plenty of inputs allowing you to configure the look of a table.</p>
-<p><img src="../../../../assets/img/framework-deep-dive-focus-link-blinking-caret.gif" data-lightbox="true" alt="The animation showing the focused link URL input in CKEditor with a blinking caret." width="606"></p>
-<p>And when many places accept focus, there must be some systems out there to discover and manage it. These systems work, for instance, so you will not find yourself in a situation where CKEditor loses focus (or gets <strong>blurred</strong>) and you cannot type your text. Or they make sure you can see and use the editor toolbar as long as you keep editing. These are just a few examples of why focus management systems are necessary but now it should be clear that they are essential for the editing experience.</p>
-<p>In the following chapters of this guide, we will explain how these systems work, what makes CKEditor &#x201C;focusable&#x201D;, and how to develop new editor features so they fit into existing focus management systems and patterns:</p>
+<p><img src="../../../../assets/img/framework-deep-dive-focus-link-blinking-caret.gif" data-lightbox="true" alt="The animation showing the focused link URL input in CKEditor 5 with a blinking caret." width="606"></p>
+<p>And when many places accept focus, there must be some systems out there to discover and manage it. These systems work, for instance, so you will not find yourself in a situation where CKEditor 5 loses focus (or gets <strong>blurred</strong>) and you cannot type your text. Or they make sure you can see and use the editor toolbar as long as you keep editing. These are just a few examples of why focus management systems are necessary. Now it should also be clear that they are essential for the editing experience.</p>
+<p>In the following chapters of this guide, we will explain how these systems work, what makes CKEditor &#x201C;focusable&#x201D;, and how to develop new editor features so they fit into the existing focus management systems and patterns:</p>
 <ul>
 <li><a href="#focus-in-the-editor-engine"><strong>The first section</strong></a> explains how the editor <a href="../../architecture/editing-engine.html">engine</a> manages focus and what tools exist there to help you out when developing new features.</li>
-<li>In <a href="#focus-in-the-editor-ui"><strong>the second part</strong></a>, we will show you how the <a href="../../architecture/ui-library.html">user interface</a> of the editor tracks focus and how various UI components take advantage of that, for instance, to provide accessibility.</li>
-<li>In <a href="#focus-state-analysis"><strong>the last section</strong></a>, we will use the knowledge from previous chapters in a real&#x2013;life scenario and analyze how all these tools and systems work together.</li>
+<li>In <a href="#focus-in-the-editor-ui"><strong>the second section</strong></a>, we will show you how the <a href="../../architecture/ui-library.html">user interface</a> of the editor tracks focus and how various UI components take advantage of that, for instance, to provide accessibility.</li>
+<li>In <a href="#focus-state-analysis"><strong>the last part</strong></a>, we will use the knowledge from previous sections in a real&#x2013;life scenario and analyze how all these tools and systems work together.</li>
 </ul>
 <h2 id="focus-in-the-editor-engine"><a class="headerlink" href="#focus-in-the-editor-engine">#</a> Focus in the editor engine</h2>
-<div class="info-box notice"><p>Keep in mind that information in this chapter concern the editor <strong>engine layer only</strong>. To learn about focus in the user interface, check out the <a href="#focus-in-the-editor-ui">next chapter</a> of this guide.</p></div>
-<p>The main editable area of CKEditor can be focused thanks to the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content" target="_blank" rel="noopener"><code>contenteditable</code></a> DOM attribute. This attribute tells the web browser that a web page element can be edited like any other text field, which also means it must be able to receive focus.</p>
+<div class="info-box notice"><p>Keep in mind that information in this chapter concerns the editor <strong>engine layer only</strong>. To learn about focus in the user interface, check out the <a href="#focus-in-the-editor-ui">next section</a> of this guide.</p></div>
+<p>The main editable area of CKEditor 5 WYSIWYG editor can be focused thanks to the <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content" target="_blank" rel="noopener"><code>contenteditable</code></a> DOM attribute. This attribute tells the web browser that a web page element can be edited like any other text field, which also means it must be able to receive focus.</p>
 <p>Each root of the editing view has the <code>contenteditable</code> attribute. The editing view uses the <a href="../../../../api/module_engine_view_observer_focusobserver-FocusObserver.html"><code>FocusObserver</code></a> (learn more about <a href="../../architecture/editing-engine.html#observers">view observers</a>) to track focus in editables by listening to native DOM <code>focus</code> and <code>blur</code> events coming from them.</p>
-<div class="info-box notice"><p>Already confused? Take a look at our <a href="../../architecture/editing-engine.html#observers">&#x201C;Editing engine&#x201D;</a> guide that will explain what the editing view, editables and other building blocks of CKEditor are.</p></div>
+<div class="info-box notice"><p>Already confused? Take a look at our <a href="../../architecture/editing-engine.html#observers">Editing engine</a> guide that explains what the editing view, editables and other building blocks of CKEditor 5 are.</p></div>
 <h3 id="checking-if-the-view-document-is-focused"><a class="headerlink" href="#checking-if-the-view-document-is-focused">#</a> Checking if the view document is focused</h3>
 <p>You can check if the view document is focused using its <a href="../observables.html">observable</a> <a href="../../../../api/module_engine_view_document-Document.html#member-isFocused"><code>isFocused</code></a> property. Create an editor instance and execute the following code:</p>
 <pre class="highlight"><code class="js">console.log( editor.editing.view.document.isFocused );
 </code></pre>
 <p>If you run this snippet from the web browser&#x2019;s developer console, it should return <code>false</code> unless you managed to keep the editor focused (e.g. by running a debugger and freezing the DOM). This happens because the editor loses focus the moment you switch to developer tools to execute the snippet.</p>
-<p>So how do I know <code>isFocused</code> actually works? Since it is observable let&#x2019;s see how it changes live:</p>
+<p>So how do I know <code>isFocused</code> actually works? Since it is observable you can see how it changes live:</p>
 <pre class="highlight"><code class="js">editor.editing.view.document.on( &apos;change:isFocused&apos;, ( evt, data, isFocused ) =&gt; {
     console.log( `View document is focused: ${ isFocused }.` );
 } );
 </code></pre>
-<p>Click the editable area of the editor and then click somewhere else &#x2013; the <code>isFocused</code> property will change its value when you do that. The same will also happen if you run an editor with <a href="custom-editor-creator.html"><strong>multiple editing roots</strong></a> and navigate across them.</p>
-<p>To spice things up even more, you should also know <code>isFocused</code> will change when you focus any <a href="../../tutorials/implementing-a-block-widget.html"><strong>nested editable</strong></a> in the content (take, for example, a <a href="../../../../features/image.html#image-captions">caption of an image</a>). Sounds weird, right? This is because every nested editable in the content has <code>contenteditable</code> attribute too and for the web browser moving your caret inside it means the main editable element is blurred and the nested one is focused.</p>
+<p>Click the editable area of the editor and then click somewhere else &#x2014; the <code>isFocused</code> property will change its value when you do that. The same will also happen if you run an editor with <a href="custom-editor-creator.html"><strong>multiple editing roots</strong></a> and navigate across them.</p>
+<p>To spice things up even more, you should also know <code>isFocused</code> will change when you focus any <a href="../../tutorials/implementing-a-block-widget.html"><strong>nested editable</strong></a> in the content (take, for example, a <a href="../../../../features/image.html#image-captions">caption of an image</a>). Sounds weird, right? This is because every nested editable in the content has the <code>contenteditable</code> attribute, too, and for the web browser moving your caret inside it means the main editable element is blurred and the nested one is focused.</p>
 <h3 id="how-to-focus-the-editor"><a class="headerlink" href="#how-to-focus-the-editor">#</a> How to focus the editor?</h3>
-<p>Say, for instance, your application wants to focus an editable area of CKEditor when a certain action is executed (e.g. a button is clicked). To do that, use the <a href="../../../../api/module_engine_view_view-View.html#function-focus"><code>focus()</code></a> method of the editing view:</p>
+<p>Say, for instance, your application wants to focus an editable area of CKEditor 5 when a certain action is executed (e.g. a button is clicked). To do that, use the <a href="../../../../api/module_engine_view_view-View.html#function-focus"><code>focus()</code></a> method of the editing view:</p>
 <pre class="highlight"><code class="js">editor.editing.view.focus();
 </code></pre>
 <p>This snippet focuses an editable that has the selection. If the editor has not been focused yet, this will focus the very first editable. If an editor has multiple editing roots and the user was editing content, focus will be brought back where the user left off.</p>
-<div class="info-box notice"><p>Focusing an editor does not change its selection. If you want to focus an editor and move the caret to a specific position, you should call <code>editor.editing.view.focus()</code> first and then use the <a href="../../../../api/module_engine_model_writer-Writer.html#function-setSelection"><code>setSelection</code></a> method of the <a href="../../architecture/editing-engine.html#model">model writer</a> to change the selection.</p></div>
+<div class="info-box notice"><p>Focusing an editor does not change its selection. If you want to focus an editor and move the caret to a specific position, you should call <code>editor.editing.view.focus()</code> first and then use the <a href="../../../../api/module_engine_model_writer-Writer.html#function-setSelection"><code>setSelection()</code></a> method of the <a href="../../architecture/editing-engine.html#model">model writer</a> to change the selection.</p></div>
 <h2 id="focus-in-the-editor-ui"><a class="headerlink" href="#focus-in-the-editor-ui">#</a> Focus in the editor UI</h2>
-<p>If you read the <a href="#focus-in-the-editor-engine">previous chapter</a> of this guide you should know that there is already a layer responsible for tracking focus implemented in the <a href="../../architecture/editing-engine.html">editor engine</a>. But because the <a href="../../architecture/intro.html">editor framework is modular</a>, that layer is only concerned by the focus in editable roots of the editor and it knows nothing of the user interface. This granularity makes it possible, for instance, to create a fully&#x2013;functioning editor without the UI.</p>
-<p>As for the user interface of CKEditor, it is a composition of multiple components <a href="../../architecture/ui-library.html#view-collections-and-the-ui-tree">organized as a tree</a>. This tree determines not only the logical structure of the UI (a toolbar has a dropdown, a dropdown has a button, a button has an icon, etc.) but also its behavior, and that includes tracking and maintaining focus as the user navigates and interacts with various pieces of the interface.</p>
-<div class="info-box notice"><p>Feeling overwhelmed? Take a look at the <a href="../../architecture/ui-library.html">&#x201C;UI library&#x201D;</a> guide and learn some basics about how the UI of CKEditor works and what its main building blocks are.</p></div>
-<p>To sum up, the are two main reasons why focus is being tracked separately on the UI-level:</p>
+<p>If you read the <a href="#focus-in-the-editor-engine">previous section</a> of this guide you should know that there is already a layer responsible for tracking focus implemented in the <a href="../../architecture/editing-engine.html">editor engine</a>. But because the <a href="../../architecture/intro.html">editor framework is modular</a>, this layer is only concerned by the focus in editable roots of the editor and it knows nothing of the user interface. This granularity makes it possible, for instance, to create a fully&#x2013;functioning editor without the UI.</p>
+<p>As for the user interface of CKEditor 5, it is a composition of multiple components <a href="../../architecture/ui-library.html#view-collections-and-the-ui-tree">organized as a tree</a>. This tree determines not only the logical structure of the UI (a toolbar has a dropdown, a dropdown has a button, a button has an icon, etc.) but also its behavior, and that includes tracking and maintaining focus as the user navigates and interacts with various pieces of the interface.</p>
+<div class="info-box notice"><p>Feeling overwhelmed? Take a look at the <a href="../../architecture/ui-library.html">UI library</a> guide and learn some basics about how the UI of CKEditor 5 works and what its main building blocks are.</p></div>
+<p>To sum up, there are two main reasons why focus is being tracked separately on the UI level:</p>
 <ul>
 <li><strong>To make sure the editor (as a whole) never loses focus unless the user wants it to.</strong><br>
-For instance, take a look at the <a href="../../../../examples/builds/inline-editor.html">inline editor</a>. As long as the user edits text in the main editable area or configures its properties in any pop&#x2013;up, drop&#x2013;down, or panel, the main editor toolbar must remain visible (because the focus is somewhere in the UI). Only when the user finishes editing and moves somewhere else on a webpage, the toolbar can disappear.</li>
+For instance, take a look at the <a href="../../../../examples/builds/inline-editor.html">inline editor</a>. As long as the user edits text in the main editable area or configures its properties in any popup, dropdown, or panel, the main editor toolbar must remain visible (because the focus is somewhere in the UI). Only when the user finishes editing and moves somewhere else on a web page, the toolbar can disappear.</li>
 <li><strong>To make the UI accessible to users who navigate it using screen readers and other assistive technologies.</strong><br>
-Those users not only write text using the keyboard but also use it to navigate across toolbar buttons, panels, dropdowns, etc&#x2026; The UI of the editor must constantly keep track of which component is currently focused, for example, to allow navigation using <kbd>Tab</kbd>, <kbd>Esc</kbd> and arrow keys.</li>
+These users not only write text using the keyboard but also use it to navigate across toolbar buttons, panels, dropdowns, etc. The UI of the editor must constantly keep track of which component is currently focused, for example, to allow navigation using <kbd>Tab</kbd>, <kbd>Esc</kbd> and arrow keys.</li>
 </ul>
 <h3 id="tools-and-architecture"><a class="headerlink" href="#tools-and-architecture">#</a> Tools and architecture</h3>
-<p>The focus management lives next to the <a href="../../architecture/ui-library.html#view-collections-and-the-ui-tree">user interface element tree</a> and its architecture is also based on components that respond to user actions within its boundaries and their children. Take a look at a common keyboard navigation scenario in a <a href="../../../../examples/builds/classic-editor.html">classic editor</a> instance:</p>
+<p>Focus management lives next to the <a href="../../architecture/ui-library.html#view-collections-and-the-ui-tree">user interface element tree</a> and its architecture is also based on components that respond to user actions within its boundaries and their children. Take a look at a common keyboard navigation scenario in a <a href="../../../../examples/builds/classic-editor.html">classic editor</a> instance:</p>
 <p><img src="../../../../assets/img/framework-deep-dive-focus-toolbar-nav.gif" data-lightbox="true" alt="The animation showing the focus moving as the user navigates to the heading drop&#x2013;down in the toolbar." width="950"></p>
 <p>Here are the focus layers that play a role in the navigation and a brief overview of what happens at each layer:</p>
 <p><img src="../../../../assets/img/framework-deep-dive-focus-toolbar-nav-layers.png" data-lightbox="true" alt="The image showing the focus layers used during navigation." width="1019"></p>
 <ol>
 <li>The root of the focus tree is the <a href="../../../../api/module_editor-classic_classiceditorui-ClassicEditorUI.html"><code>ClassicEditorUI</code></a> class. It creates a <a href="#a-note-about-the-global-focus-tracker">global focus tracker</a> for the entire editor (you can access it via <a href="../../../../api/module_core_editor_editorui-EditorUI.html#member-focusTracker"><code>editor.ui.focusTracker</code></a>).</li>
-<li>When editing text, you can hit the <kbd>Alt</kbd>+<kbd>F10</kbd> keystroke to focus the main editor toolbar, which is the second &#x201C;focus layer&#x201D;.
+<li>When editing text, you can hit the <kbd>Alt</kbd>+<kbd>F10</kbd> keystroke to focus the main editor toolbar, which is the second focus layer.
 <ul>
 <li>The <a href="../../../../api/module_ui_toolbar_toolbarview-ToolbarView.html"><code>ToolbarView</code></a> component brings a focus tracker that keeps an eye on its children so that when a user navigates across the toolbar using the keyboard arrows, it is clear which item is focused.</li>
-<li>Toolbars also use a <a href="#using-the-focuscycler-class">focus cycler</a> to provide continuous navigation. For instance, navigating to the item next when the last one is focused, brings the focus back to the beginning of the toolbar.</li>
+<li>Toolbars also use a <a href="#using-the-focuscycler-class">focus cycler</a> to provide continuous navigation. For instance, navigating to the next item when the last one is focused brings the focus back to the beginning of the toolbar.</li>
 </ul>
 </li>
-<li>When a user selects a toolbar item, its <code>focus()</code> method is executed. That brings us to the &#x201C;third layer&#x201D;.
+<li>When a user selects a toolbar item, its <code>focus()</code> method is executed. That brings us to the third layer.
 <ul>
-<li>Some components of the toolbar are simple (like <a href="../../../../api/module_ui_button_buttonview-ButtonView.html"><code>ButtonView</code></a>) and their DOM elements are leaves of the focus tree. But some components, for instance, the <a href="../../../../api/module_ui_dropdown_dropdownview-DropdownView.html"><code>DropdownView</code></a> are containers and allow the focus to go deeper. Each dropdown has a focusable button and can host one child view in its <a href="../../../../api/module_ui_dropdown_dropdownpanelview-DropdownPanelView.html"><code>DropdownPanelView</code></a>. It does not need a focus tracker because there are only two ways a user can navigate it: down its panel or away from it.</li>
+<li>Some components of the toolbar are simple (like <a href="../../../../api/module_ui_button_buttonview-ButtonView.html"><code>ButtonView</code></a>) and their DOM elements are leaves of the focus tree. But some components, for instance, the <a href="../../../../api/module_ui_dropdown_dropdownview-DropdownView.html"><code>DropdownView</code></a>, are containers and allow the focus to go deeper. Each dropdown has a focusable button and can host one child view in its <a href="../../../../api/module_ui_dropdown_dropdownpanelview-DropdownPanelView.html"><code>DropdownPanelView</code></a>. It does not need a focus tracker because there are only two ways a user can navigate it: down its panel or away from it.</li>
 </ul>
 </li>
-<li>When a user enters the dropdown&#x2019;s panel they visit another (fourth) layer of focus. This time it is the <a href="../../../../api/module_ui_list_listview-ListView.html"><code>ListView</code></a> that, like the <code>ToolbarView</code>, also needs a focus tracker and a focus cycler to allow smooth keyboard navigation across its items.</li>
-<li>The outermost leaf of the focus tree in this example is a <a href="../../../../api/module_ui_list_listitemview-ListItemView.html"><code>ListItemView</code></a>. It has the <a href="../../../../api/module_ui_list_listitemview-ListItemView.html#function-focus"><code>focus()</code></a> method that focuses its element in DOM.</li>
+<li>When a user enters the dropdown&#x2019;s panel, they visit another (fourth) layer of focus. This time it is the <a href="../../../../api/module_ui_list_listview-ListView.html"><code>ListView</code></a> that, like the <code>ToolbarView</code>, also needs a focus tracker and a focus cycler to allow smooth keyboard navigation across its items.</li>
+<li>The outermost leaf of the focus tree in this example is a <a href="../../../../api/module_ui_list_listitemview-ListItemView.html"><code>ListItemView</code></a>. It has the <a href="../../../../api/module_ui_list_listitemview-ListItemView.html#function-focus"><code>focus()</code></a> method that focuses its element in the DOM.</li>
 </ol>
 <p>And here is the summary of the tools used by each focus layer (UI component):</p>
 <figure class="table">
@@ -361,12 +361,12 @@ Those users not only write text using the keyboard but also use it to navigate a
 		</tbody>
 	</table>
 </figure>
-<p>Most of components have <a href="#using-the-focustracker-class">focus trackers</a> to keep up with the focus inside of them. Some components that host more children also use <a href="#using-the-focuscycler-class">focus cyclers</a> and <a href="#using-the-keystrokehandler-class">keystroke handlers</a> to help the user navigate across them. You can learn how to use them in the later chapters of this guide:</p>
+<p>Most components have <a href="#using-the-focustracker-class">focus trackers</a> to keep up with the focus inside of them. Some components that host more children also use <a href="#using-the-focuscycler-class">focus cyclers</a> and <a href="#using-the-keystrokehandler-class">keystroke handlers</a> to help the user navigate across them. You can learn how to use them in the later sections of this guide:</p>
 <ul>
-<li><a href="#implementing-focusable-ui-components">&#x201C;Implementing focusable UI components&#x201D;</a>,</li>
-<li><a href="#using-the-focustracker-class">&#x201C;Using the <code>FocusTracker</code> class&#x201D;</a>,</li>
-<li><a href="#using-the-keystrokehandler-class">&#x201C;Using the <code>KeystrokeHandler</code> class&#x201D;</a>,</li>
-<li><a href="#using-the-focuscycler-class">&#x201C;Using the <code>FocusCycler</code> class&#x201D;</a>.</li>
+<li><a href="#implementing-focusable-ui-components">Implementing focusable UI components</a>,</li>
+<li><a href="#using-the-focustracker-class">Using the <code>FocusTracker</code> class</a>,</li>
+<li><a href="#using-the-keystrokehandler-class">Using the <code>KeystrokeHandler</code> class</a>,</li>
+<li><a href="#using-the-focuscycler-class">Using the <code>FocusCycler</code> class</a>.</li>
 </ul>
 <h3 id="implementing-focusable-ui-components"><a class="headerlink" href="#implementing-focusable-ui-components">#</a> Implementing focusable UI components</h3>
 <p>Any UI <a href="../../architecture/ui-library.html#views">view</a> can be focusable. To become one, a view must implement the <code>focus()</code> method that focuses the DOM <a href="../../../../api/module_ui_view-View.html#member-element">element</a> and the <code>tabindex=&quot;-1&quot;</code> attribute set on the element that prevents the native navigation using the keyboard (which should be handled by the <a href="#using-the-focuscycler-class">focus cycler</a> on the parent&#x2013;level):</p>
@@ -395,7 +395,7 @@ class MyListItemView extends View {
     }
 }
 </code></pre>
-<p>If a view has many focusable children (e.g. a list), then the <code>focus()</code> method should focus the first child:</p>
+<p>If a view has many focusable children (e.g. a list), the <code>focus()</code> method should focus the first child:</p>
 <pre class="highlight"><code class="js">import View from &apos;@ckeditor/ckeditor5-ui/src/view&apos;;
 
 class MyListView extends View {
@@ -422,13 +422,13 @@ class MyListView extends View {
     }
 }
 </code></pre>
-<p>Focusable views are what makes it possible to navigate the interface of CKEditor using the keyboard. In the <a href="#using-the-focustracker-class">next chapter</a>, you will learn how parent views keep track focus among their children using the <code>FocusTracker</code> class.</p>
+<p>Focusable views are what make it possible to navigate the interface of CKEditor using the keyboard. In the <a href="#using-the-focustracker-class">next section</a>, you will learn how parent views keep track of focus among their children using the <code>FocusTracker</code> class.</p>
 <h3 id="using-the-focustracker-class"><a class="headerlink" href="#using-the-focustracker-class">#</a> Using the <code>FocusTracker</code> class</h3>
-<p>One of the key focus management helpers in the UI of CKEditor is the <a href="../../../../api/module_utils_focustracker-FocusTracker.html"><code>FocusTracker</code></a> class and its instances. They work at the DOM level and offer a fairly simple API:</p>
+<p>One of the key focus management helpers in the CKEditor 5 UI is the <a href="../../../../api/module_utils_focustracker-FocusTracker.html"><code>FocusTracker</code></a> class and its instances. They work at the DOM level and offer a fairly simple API:</p>
 <ul>
-<li>methods to <a href="../../../../api/module_utils_focustracker-FocusTracker.html#function-add"><code>add()</code></a> and <a href="../../../../api/module_utils_focustracker-FocusTracker.html#function-remove"><code>remove()</code></a> tracked DOM elements,</li>
-<li>an observable <a href="../../../../api/module_utils_focustracker-FocusTracker.html#member-isFocused"><code>isFocused</code></a> property telling the world that one of the tracked elements has focus in DOM,</li>
-<li>an observable <a href="../../../../api/module_utils_focustracker-FocusTracker.html#member-focusedElement"><code>focusedElement</code></a> property that precisely says which DOM element is focused.</li>
+<li>Methods to <a href="../../../../api/module_utils_focustracker-FocusTracker.html#function-add"><code>add()</code></a> and <a href="../../../../api/module_utils_focustracker-FocusTracker.html#function-remove"><code>remove()</code></a> tracked DOM elements.</li>
+<li>An observable <a href="../../../../api/module_utils_focustracker-FocusTracker.html#member-isFocused"><code>isFocused</code></a> property telling the world that one of the tracked elements has focus in the DOM.</li>
+<li>An observable <a href="../../../../api/module_utils_focustracker-FocusTracker.html#member-focusedElement"><code>focusedElement</code></a> property that precisely says which DOM element is focused.</li>
 </ul>
 <p>Focus trackers listen to DOM <code>focus</code> and <code>blur</code> events coming from elements they track and they determine if any is currently focused. As a rule of thumb, a <a href="../../architecture/ui-library.html#view-collections-and-the-ui-tree">parent</a> to more than one focusable element should have a focus tracker.</p>
 <div class="info-box notice"><p>Keep in mind that simple components that have no focusable children or just a single focusable child may not need a focus tracker.</p></div>
@@ -441,10 +441,10 @@ class MyListView extends View {
 </code></pre>
 <p>The class responsible for the UI of the editor (<a href="../../../../api/module_editor-classic_classiceditorui-ClassicEditorUI.html"><code>ClassicEditorUI</code></a>, <a href="../../../../api/module_editor-inline_inlineeditorui-InlineEditorUI.html"><code>InlineEditorUI</code></a>, etc.) <strong>must</strong> inform the global focus tracker about the focusable building blocks of the interface, for instance, editable roots of the editor (where the editing takes place) or toolbars.</p>
 <p>The same applies to plugins bringing any focusable UI. For instance, the <a href="../../../../api/module_ui_panel_balloon_contextualballoon-ContextualBalloon.html">contextual balloon</a> plugin that offers a shared floating balloon used by many features across the project (link editing, image tools, widget toolbars, etc.) also registers the balloon in the global focus tracker. Please keep this in mind when developing your custom editor plugins.</p>
-<p>The continuity of editor focus is maintained <strong>only</strong> when the global focus tracker is aware of <strong>all</strong> focusable blocks of the UI. Their location in DOM is not relevant: next to the editable root, in the <a href="../../../../api/module_ui_editorui_bodycollection-BodyCollection.html">&#x201C;body&#x201D; collection</a> or even somewhere else &#x2013; to the global focus tracker they are all pieces of the same editor.</p>
-<div class="info-box notice"><p>Check out the <a href="#focus-state-analysis">&#x201C;Focus state analysis&#x201D; chapter</a> to see the global focus tracker working in a real&#x2013;life scenario.</p></div>
+<p>The continuity of editor focus is maintained <strong>only</strong> when the global focus tracker is aware of <strong>all</strong> focusable blocks of the UI. Their location in DOM is irrelevant: next to the editable root, in the <a href="../../../../api/module_ui_editorui_bodycollection-BodyCollection.html">&#x201C;body&#x201D; collection</a> or even somewhere else. To the global focus tracker they are all pieces of the same editor.</p>
+<div class="info-box notice"><p>Check out the <a href="#focus-state-analysis">Focus state analysis section </a> to see the global focus tracker working in a real&#x2013;life scenario.</p></div>
 <h4 id="a-practical-example"><a class="headerlink" href="#a-practical-example">#</a> A practical example</h4>
-<p>Take a look at the following example of a list that has multiple items, a classic use&#x2013;case for a focus tracker:</p>
+<p>Take a look at the following example of a list that has multiple items, a classic use case for a focus tracker:</p>
 <pre class="highlight"><code class="js">import View from &apos;@ckeditor/ckeditor5-ui/src/view&apos;;
 import FocusTracker from &apos;@ckeditor/ckeditor5-utils/src/focustracker&apos;;
 
@@ -498,10 +498,10 @@ class MyListView extends View {
     // ...
 }
 </code></pre>
-<p>The <code>MyListView</code> can now track focused children, and it is time to help the user navigate them using the keyboard. In the next chapter, you will create a <a href="#using-the-keystrokehandler-class">keystroke handler</a> that will bring you closer to the goal.</p>
+<p>The <code>MyListView</code> can now track focused children, and it is time to help the user navigate them using the keyboard. In the next section, you will create a <a href="#using-the-keystrokehandler-class">keystroke handler</a> that will bring you closer to the goal.</p>
 <h3 id="using-the-keystrokehandler-class"><a class="headerlink" href="#using-the-keystrokehandler-class">#</a> Using the <code>KeystrokeHandler</code> class</h3>
-<p>The <a href="../../../../api/module_utils_keystrokehandler-KeystrokeHandler.html"><code>KeystrokeHandler</code></a> helper class allows registering callbacks for the keystrokes. It used in many views across the UI of the editor for many purposes, for instance, it is responsible for focusing the toolbar on <kbd>Alt</kbd>+<kbd>F10</kbd> keypress or it opens the link pop&#x2013;up form when you hit <kbd>Ctrl</kbd>+<kbd>L</kbd> on a selected text.</p>
-<p>But in the context of focus management, it is used by the <a href="#using-the-focuscycler-class">focus cycler</a> you will get familiar with in the next section. You can learn more about the <a href="../../../../api/module_utils_keystrokehandler-KeystrokeHandler.html"><code>KeystrokeHandler</code></a> class in the API documentation but for now, you should only know how to create and initialize it before moving forwards:</p>
+<p>The <a href="../../../../api/module_utils_keystrokehandler-KeystrokeHandler.html"><code>KeystrokeHandler</code></a> helper class allows registering callbacks for the keystrokes. It is used in many views across the UI of the editor for many purposes. For instance, it is responsible for focusing the toolbar on the <kbd>Alt</kbd>+<kbd>F10</kbd> keypress or it opens the link popup form when you hit <kbd>Ctrl</kbd>+<kbd>L</kbd> on a selected text.</p>
+<p>But in the context of focus management, it is used by the <a href="#using-the-focuscycler-class">focus cycler</a> you will get familiar with in the next section. You can learn more about the <a href="../../../../api/module_utils_keystrokehandler-KeystrokeHandler.html"><code>KeystrokeHandler</code></a> class in the API documentation but for now, you should only know how to create and initialize it before moving forward:</p>
 <pre class="highlight"><code class="js">import View from &apos;@ckeditor/ckeditor5-ui/src/view&apos;;
 import FocusTracker from &apos;@ckeditor/ckeditor5-utils/src/focustracker&apos;;
 import FocusCycler from &apos;@ckeditor/ckeditor5-ui/src/focuscycler&apos;;
@@ -536,9 +536,9 @@ export default class MyListView extends View {
 }
 </code></pre>
 <h3 id="using-the-focuscycler-class"><a class="headerlink" href="#using-the-focuscycler-class">#</a> Using the <code>FocusCycler</code> class</h3>
-<p><a href="../../../../api/module_ui_focuscycler-FocusCycler.html"><code>FocusCycler</code></a> helps the user navigate the user interface using the keystrokes (arrow keys, <kbd>Tab</kbd>, <kbd>Return</kbd>, and <kbd>Esc</kbd>, etc.). This helper class has been created with components hosting multiple children in mind, for instance, lists, toolbars or forms. It <em>cycles</em> over their children so, for instance, if the focused is the last child and the user wants to move forwards, the focus is moved back to the first child. It also supports components that have a variable (dynamic) number of focusable children.</p>
+<p><a href="../../../../api/module_ui_focuscycler-FocusCycler.html"><code>FocusCycler</code></a> helps the user navigate the user interface using the keystrokes (arrow keys, <kbd>Tab</kbd>, <kbd>Return</kbd>, <kbd>Esc</kbd>, etc.). This helper class was created with components hosting multiple children in mind, for instance, lists, toolbars or forms. It <em>cycles</em> over their children so, for instance, if the last child is focused and the user wants to move forward, the focus is moved back to the first child. It also supports components that have a variable (dynamic) number of focusable children.</p>
 <p>Each focus cycler instance works together with a <a href="#using-the-focustracker-class">focus tracker</a> and a <a href="#using-the-keystrokehandler-class">keystroke handler</a>. The former delivers the current state of the focus, while the latter helps the cycler integrate with keystrokes, for instance, to focus the next item in the list on the down arrow key press.</p>
-<p>Take a look at the example list class using a focus cycler, a keystroke handler and a focus tracker instances together to enable the keyboard navigation. First, all the helpers must be created:</p>
+<p>Take a look at the example list class using focus cycler, keystroke handler and focus tracker instances together to enable the keyboard navigation. First, all the helpers must be created:</p>
 <pre class="highlight"><code class="js">import View from &apos;@ckeditor/ckeditor5-ui/src/view&apos;;
 import FocusTracker from &apos;@ckeditor/ckeditor5-utils/src/focustracker&apos;;
 import FocusCycler from &apos;@ckeditor/ckeditor5-ui/src/focuscycler&apos;;
@@ -550,7 +550,7 @@ class MyListView extends View {
 
         // ...
 
-        // A view collection containing items of the list.
+        // The view collection containing items of the list.
         this.items = this.createCollection();
 
         // The instance of the focus tracker that tracks focus in #items.
@@ -565,10 +565,10 @@ class MyListView extends View {
             focusTracker: this.focusTracker,
             keystrokeHandler: this.keystrokes,
             actions: {
-                // Navigate list items backwards using the arrowup key.
+                // Navigate list items backward using the arrow up key.
                 focusPrevious: &apos;arrowup&apos;,
 
-                // Navigate toolbar items forwards using the arrowdown key.
+                // Navigate toolbar items forward using the arrow down key.
                 focusNext: &apos;arrowdown&apos;
             }
         } );
@@ -577,7 +577,7 @@ class MyListView extends View {
     // ...
 }
 </code></pre>
-<p>Similarly to the previous chapters of this guide, let&#x2019;s feed the focus tracker and synchronize it with the list items collection in the <code>render()</code> method. Since the <a href="../../../../api/module_ui_view-View.html#member-element"><code>MyListView#element</code></a> has already been rendered at that stage, this is also the right moment to start listening to the keyboard events:</p>
+<p>Similarly to the previous sections of this guide, feed the focus tracker and synchronize it with the list items collection in the <code>render()</code> method. Since the <a href="../../../../api/module_ui_view-View.html#member-element"><code>MyListView#element</code></a> has already been rendered at that stage, this is also the right moment to start listening to the keyboard events:</p>
 <pre class="highlight"><code class="js">// ...
 
 class MyListView extends View {
@@ -636,7 +636,7 @@ class MyListView extends View {
     constructor( locale ) {
         super( locale );
 
-        // A view collection containing items of the list.
+        // The view collection containing items of the list.
         this.items = this.createCollection();
 
         // The instance of the focus tracker that tracks focus in #items.
@@ -651,10 +651,10 @@ class MyListView extends View {
             focusTracker: this.focusTracker,
             keystrokeHandler: this.keystrokes,
             actions: {
-                // Navigate list items backwards using the arrowup key.
+                // Navigate list items backward using the arrow up key.
                 focusPrevious: &apos;arrowup&apos;,
 
-                // Navigate toolbar items forwards using the arrowdown key.
+                // Navigate toolbar items forward using the arrow down key.
                 focusNext: &apos;arrowdown&apos;
             }
         } );
@@ -743,7 +743,7 @@ class MyListItemView extends View {
         list.items.add( firstChild );
         list.items.add( secondChild );
 
-        // Render the list and put it in DOM.
+        // Render the list and put it in the DOM.
         list.render();
         editor.ui.view.body.add( list );
 
@@ -758,13 +758,13 @@ class MyListItemView extends View {
 <p>Now you can use the keyboard arrows to cycle the focused list items:</p>
 <p><img src="../../../../assets/img/framework-deep-dive-focus-focus-cycling.gif" data-lightbox="true" alt="The animation showing the focus cycling across the list items." width="950"></p>
 <h2 id="focus-state-analysis"><a class="headerlink" href="#focus-state-analysis">#</a> Focus state analysis</h2>
-<p>This chapter contains an analysis of a common focus navigation scenario in an <a href="../../../../examples/builds/inline-editor.html">inline editor</a>. While the <a href="#focus-in-the-editor-ui">previous chapter</a> was focused on tools that make up the focus management system, this time we will focus on their state. This should help you better understand how all little pieces work in a bigger picture.</p>
+<p>This section contains an analysis of a common focus navigation scenario in an <a href="../../../../examples/builds/inline-editor.html">inline editor</a>. While the <a href="#focus-in-the-editor-ui">previous section</a> was focused on tools that make up the focus management system, this time we will focus on their state. This should help you better understand how all little pieces work in a bigger picture.</p>
 <h3 id="scenario"><a class="headerlink" href="#scenario">#</a> Scenario</h3>
 <p>Take a look at the following scenario where both mouse and keyboard are used to navigate the interface of the editor:</p>
 <p><img src="../../../../assets/img/framework-deep-dive-focus-inline-scenario.gif" data-lightbox="true" alt="The animation showing the focus navigation across the inline editor UI." width="758"></p>
 <p>And here are the steps of the scenario:</p>
 <ol>
-<li>The editor is not focused (the focus is somewhere else on a web page).</li>
+<li>The editor is not focused (the focus is somewhere else on the web page).</li>
 <li>The <a href="../../../../api/module_ui_editableui_inline_inlineeditableuiview-InlineEditableUIView.html">editable area</a> gets focused using the mouse. The main toolbar shows up and because the link was clicked, the <a href="../../../../api/module_link_ui_linkactionsview-LinkActionsView.html">link actions view</a> also pops up.</li>
 <li>The <kbd>Tab</kbd> key is used to focus the <a href="../../../../api/module_link_ui_linkactionsview-LinkActionsView.html#member-previewButtonView">link preview</a> in the balloon (a child of <a href="../../../../api/module_link_ui_linkactionsview-LinkActionsView.html"><code>LinkActionsView</code></a>).</li>
 <li>The <kbd>Tab</kbd> key is used to focus the <a href="../../../../api/module_link_ui_linkactionsview-LinkActionsView.html#member-editButtonView">&#x201C;Edit link&#x201D; button</a>.</li>
@@ -888,8 +888,8 @@ class MyListItemView extends View {
 <ul>
 <li>The <a href="#a-note-about-the-global-focus-tracker">global focus tracker</a> (the one you can access via <code>editor.ui.focusTracker</code>) is always aware of the focus state, even when the focus is in the farthest regions of the UI.
 <ul>
-<li>It does not know which element is focused on deeper layers (for instance the &#x201C;Edit link&#x201D; button), though. All it knows is where the focus went (e.g. from editable to the balloon panel).</li>
-<li>It lacks precise information about the focus in the link UI because that is the responsibility of the focus tracker of the link UI layer.</li>
+<li>It does not know which element is focused on deeper layers (for instance the &#x201C;Edit link&#x201D; button), though. All it knows is where the focus went (e.g. from the editable to the balloon panel).</li>
+<li>It lacks precise information about the focus in the link UI because this is the responsibility of the focus tracker of the link UI layer.</li>
 <li>All editor features <strong>can always depend on the global focus tracker</strong> when necessary. For instance, the main editor toolbar is displayed as long as the global focus tracker knows the focus is somewhere in the editor.</li>
 </ul>
 </li>
