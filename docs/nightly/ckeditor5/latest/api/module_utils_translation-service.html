@@ -173,6 +173,23 @@
     </ul>
   </div>
 </div>
+          <h2 id="type-definitions">Type Definitions</h2>
+          <ul class="collapsing-list collapsing-list--filtered">
+                      <li class="collapsing-list__item collapsing-list__item--visible" data-public="true">
+                        <div class="collapsing-list__term" id="typedef-Message">
+                          <h3><code><span><a href="module_utils_translation-service-Message.html">Message</a></span></code><span class="collapsing-list__dev-names" aria-hidden="true"><code>module:utils/translation-service~Message</code></span>
+                          </h3>
+                        </div>
+                        <div class="collapsing-list__description">
+                          <p class="collapsing-list__excerpt collapsing-list__excerpt--short">The internationalization message interface. A message that implements this interface can be passed to the <code>t()</code> function
+to be translated to the target ui language.</p>
+                                    <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-utils/blob/5f6ea7500fbcc20ba88388080337734787850d8e/src/translation-service.js#L203-L216" target="_blank" rel="noopener noreferrer">
+                                        <svg viewBox="0 0 1024 1024">
+                                          <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
+                                        </svg>See source</a></div>
+                        </div>
+                      </li>
+          </ul>
           <h2 id="functions">Functions</h2>
           <ul class="collapsing-list collapsing-list--filtered" data-type="functions">
                       <li class="collapsing-list__item collapsing-list__item--visible" data-protected="true">
@@ -187,7 +204,7 @@
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__excerpt">
                             <p>Clears dictionaries for test purposes.</p>
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-utils/blob/2902b30a06abe2a8e77d6d16bea0f827c58d7f61/src/translation-service.js#L86-L90" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-utils/blob/5f6ea7500fbcc20ba88388080337734787850d8e/src/translation-service.js#L182-L186" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div>
@@ -196,9 +213,67 @@
                           </div>
                         </div>
                       </li>
+                      <li class="collapsing-list__item collapsing-list__item--visible" data-protected="true">
+                        <div class="collapsing-list__term toggler--collapsed" id="static-function-_translate">
+                          <h3><code><a class="member-name" href="#static-function-_translate">_translate</a>( language, message, [ quantity ] ) &rarr;  <span>String</span></code><span class="collapsing-list__dev-names" aria-hidden="true"><code>module:utils/translation-service._translate</code></span>
+                          </h3>
+                          <p class="badges">
+<span class="badge badge--orange ">protected</span>
+<span class="badge badge--gray ">static</span>
+                          </p>
+                        </div>
+                        <div class="collapsing-list__description">
+                          <div class="collapsing-list__excerpt">
+                            <p><strong>Note:</strong> this method is internal, use <a href="module_utils_locale-Locale.html#function-t">the <code>t()</code> function</a> instead to translate
+editor UI parts.</p>
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-utils/blob/5f6ea7500fbcc20ba88388080337734787850d8e/src/translation-service.js#L107-L137" target="_blank" rel="noopener noreferrer">
+                                          <svg viewBox="0 0 1024 1024">
+                                            <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
+                                          </svg>See source</a></div>
+                          </div>
+                          <div class="collapsing-list__content">
+<p>This function is responsible for translating messages to the specified language. It uses perviously added translations
+by <a href="module_utils_translation-service.html#static-function-add"><code>add</code></a> (a translations dictionary and and the <code>getPluralForm</code> function
+to provide accurate translations of plural forms).</p>
+<p>When no translation is defined in the dictionary or the dictionary doesn&apos;t exist this function returns
+the original message string or message plural depending on the number of elements.</p>
+<pre class="prettyprint source"><code>translate( &apos;pl&apos;, { string: &apos;Cancel&apos; } ); // &apos;Cancel&apos;</code></pre><p>The third optional argument is the number of elements, based on which the single form or one of plural forms
+should be picked when the message is supposed to support various plural forms.</p>
+<pre class="prettyprint source"><code>translate( &apos;en&apos;, { string: &apos;Add a space&apos;, plural: &apos;Add %0 spaces&apos; }, 1 ); // &apos;Add a space&apos;
+translate( &apos;en&apos;, { string: &apos;Add a space&apos;, plural: &apos;Add %0 spaces&apos; }, 3 ); // &apos;Add %0 spaces&apos;</code></pre><p>The message should provide an id using the <code>id</code> property when the message strings are not unique and their
+translations should be different.</p>
+<pre class="prettyprint source"><code>translate( &apos;en&apos;, { string: &apos;image&apos;, id: &apos;ADD_IMAGE&apos; } );
+translate( &apos;en&apos;, { string: &apos;image&apos;, id: &apos;AN_IMAGE&apos; } );</code></pre>
+                            <h4>Parameters</h4>
+                                      <dl>
+                                        <dt><code>language
+                                            :
+ <span>String</span></code></dt>
+                                        <dd><p>Target language.</p>
+                                        </dd>
+                                        <dt><code>message
+                                            :
+ <span><a class="collapsing-list__type" href="module_utils_translation-service-Message.html">Message</a></span> | <span>String</span></code></dt>
+                                        <dd><p>A message that will be translated.</p>
+                                        </dd>
+                                        <dt><code>[ quantity ]
+                                            :
+ <span>Number</span></code></dt>
+                                        <dd><p>A number of elements for which a plural form should be picked from the target language dictionary.</p>
+                                        </dd>
+                                      </dl>
+                            <h4>Returns</h4>
+                            <dl>
+                                        <dt><code><span>String</span></code></dt>
+                                        <dd><p>Translated sentence.</p>
+                                        </dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </li>
                       <li class="collapsing-list__item collapsing-list__item--visible" data-public="true">
                         <div class="collapsing-list__term toggler--collapsed" id="static-function-add">
-                          <h3><code><a class="member-name" href="#static-function-add">add</a>( language, translations )</code><span class="collapsing-list__dev-names" aria-hidden="true"><code>module:utils/translation-service.add</code></span>
+                          <h3><code><a class="member-name" href="#static-function-add">add</a>( language, translations, getPluralForm )</code><span class="collapsing-list__dev-names" aria-hidden="true"><code>module:utils/translation-service.add</code></span>
                           </h3>
                           <p class="badges">
 <span class="badge badge--gray ">static</span>
@@ -206,29 +281,63 @@
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__excerpt">
-                            <p>Adds translations to existing ones.
-These translations will later be available for the <a href="module_utils_translation-service.html#static-function-translate"><code>translate()</code></a> function.</p>
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-utils/blob/2902b30a06abe2a8e77d6d16bea0f827c58d7f61/src/translation-service.js#L17-L43" target="_blank" rel="noopener noreferrer">
+                            <p>Adds translations to existing ones or overrides the existing translations. These translations will later
+be available for the <a href="module_utils_locale-Locale.html#function-t"><code>t()</code></a> function.</p>
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-utils/blob/5f6ea7500fbcc20ba88388080337734787850d8e/src/translation-service.js#L19-L93" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div>
                           </div>
                           <div class="collapsing-list__content">
+<p>The <code>translations</code> is an object which consists of a <code>messageId: translation</code> pairs. Note that the message id can be
+either constructed from the message string or from the message id if it was passed
+(this happens rarely and mostly for short messages or messages with placeholders).
+Since the editor displays only the message string, the message id can be found either in the source code or in the
+built translations for another language.</p>
 <pre class="prettyprint source"><code>add( &apos;pl&apos;, {
-    &apos;OK&apos;: &apos;OK&apos;,
-    &apos;Cancel [context: reject]&apos;: &apos;Anuluj&apos;
-} );</code></pre><p>If you cannot import this function from this module (e.g. because you use a CKEditor 5 build), then you can
+    &apos;Cancel&apos;: &apos;Anuluj&apos;,
+    &apos;IMAGE&apos;: &apos;obraz&apos;, // Note that the `IMAGE` comes from the message id, while the string can be `image`.
+} );</code></pre><p>If the message is supposed to support various plural forms, make sure to provide an array with the singular form and all plural forms:</p>
+<pre class="prettyprint source"><code>add( &apos;pl&apos;, {
+     &apos;Add space&apos;: [ &apos;Dodaj spacj&#x119;&apos;, &apos;Dodaj %0 spacje&apos;, &apos;Dodaj %0 spacji&apos; ]
+} );</code></pre><p>You should also specify the third argument (the <code>getPluralForm</code> function) that will be used to determine the plural form if no
+language file was loaded for that language. All language files coming from CKEditor 5 sources will have this option set, so
+these plural form rules will be reused by other translations added to the registered languages. The <code>getPluralForm</code> function
+can return either a boolean or a number.</p>
+<pre class="prettyprint source"><code>add( &apos;en&apos;, {
+     // ... Translations.
+}, n =&gt; n !== 1 );
+add( &apos;pl&apos;, {
+     // ... Translations.
+}, n =&gt; n == 1 ? 0 : n % 10 &gt;= 2 &amp;&amp; n % 10 &lt;= 4 &amp;&amp; ( n % 100 &lt; 10 || n % 100 &gt;= 20 ) ? 1 : 2 );</code></pre><p>All translations extend the global <code>window.CKEDITOR_TRANSLATIONS</code> object. An example of this object can be found below:</p>
+<pre class="prettyprint source"><code>{
+    pl: {
+        dictionary: {
+            &apos;Cancel&apos;: &apos;Anuluj&apos;,
+            &apos;Add space&apos;: [ &apos;Dodaj spacj&#x119;&apos;, &apos;Dodaj %0 spacje&apos;, &apos;Dodaj %0 spacji&apos; ]
+        },
+        // A function that returns the plural form index.
+        getPluralForm: n =&gt; n !==1
+    }
+    // other languages.
+}</code></pre><p>If you cannot import this function from this module (e.g. because you use a CKEditor 5 build), then you can
 still add translations by extending the global <code>window.CKEDITOR_TRANSLATIONS</code> object by using a function like
 the one below:</p>
-<pre class="prettyprint source"><code>function addTranslations( language, translations ) {
+<pre class="prettyprint source"><code>function addTranslations( language, translations, getPluralForm ) {
     if ( !window.CKEDITOR_TRANSLATIONS ) {
         window.CKEDITOR_TRANSLATIONS = {};
     }
+    if ( !window.CKEDITOR_TRANSLATIONS[ language ] ) {
+        window.CKEDITOR_TRANSLATIONS[ language ] = {};
+    }
 
-    const dictionary = window.CKEDITOR_TRANSLATIONS[ language ] || ( window.CKEDITOR_TRANSLATIONS[ language ] = {} );
+    const languageTranslations = window.CKEDITOR_TRANSLATIONS[ language ];
+
+    languageTranslations.dictionary = languageTranslations.dictionary || {};
+    languageTranslations.getPluralForm = getPluralForm || languageTranslations.getPluralForm;
 
     // Extend the dictionary for the given language.
-    Object.assign( dictionary, translations );
+    Object.assign( languageTranslations.dictionary, translations );
 }</code></pre>
                             <h4>Parameters</h4>
                                       <dl>
@@ -239,56 +348,17 @@ the one below:</p>
                                         </dd>
                                         <dt><code>translations
                                             :
- <span>Object.&lt;String, String&gt;</span></code></dt>
-                                        <dd><p>Translations which will be added to the dictionary.</p>
+ <span>Object.&lt;String, *&gt;</span></code></dt>
+                                        <dd><p>An object with translations which will be added to the dictionary.
+For each message id the value should be either a translation or an array of translations if the message
+should support plural forms.</p>
+                                        </dd>
+                                        <dt><code>getPluralForm
+                                            :
+ <span>function</span></code></dt>
+                                        <dd><p>A function that returns the plural form index (a number).</p>
                                         </dd>
                                       </dl>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="collapsing-list__item collapsing-list__item--visible" data-public="true">
-                        <div class="collapsing-list__term toggler--collapsed" id="static-function-translate">
-                          <h3><code><a class="member-name" href="#static-function-translate">translate</a>( language, translationKey ) &rarr;  <span>String</span></code><span class="collapsing-list__dev-names" aria-hidden="true"><code>module:utils/translation-service.translate</code></span>
-                          </h3>
-                          <p class="badges">
-<span class="badge badge--gray ">static</span>
-                          </p>
-                        </div>
-                        <div class="collapsing-list__description">
-                          <div class="collapsing-list__excerpt">
-                            <p>Translates string if the translation of the string was previously added to the dictionary.
-See <a href="module_utils_translation-service.html">Translation Service</a>.
-This happens in a multi-language mode were translation modules are created by the bundler.</p>
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5-utils/blob/2902b30a06abe2a8e77d6d16bea0f827c58d7f61/src/translation-service.js#L50-L66" target="_blank" rel="noopener noreferrer">
-                                          <svg viewBox="0 0 1024 1024">
-                                            <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
-                                          </svg>See source</a></div>
-                          </div>
-                          <div class="collapsing-list__content">
-<p>When no translation is defined in the dictionary or the dictionary doesn&apos;t exist this function returns
-the original string without the <code>&apos;[context: ]&apos;</code> (happens in development and single-language modes).</p>
-<p>In a single-language mode (when values passed to <code>t()</code> were replaced with target language strings) the dictionary
-is left empty, so this function will return the original strings always.</p>
-<pre class="prettyprint source"><code>translate( &apos;pl&apos;, &apos;Cancel [context: reject]&apos; );</code></pre>
-                            <h4>Parameters</h4>
-                                      <dl>
-                                        <dt><code>language
-                                            :
- <span>String</span></code></dt>
-                                        <dd><p>Target language.</p>
-                                        </dd>
-                                        <dt><code>translationKey
-                                            :
- <span>String</span></code></dt>
-                                        <dd><p>String that will be translated.</p>
-                                        </dd>
-                                      </dl>
-                            <h4>Returns</h4>
-                            <dl>
-                                        <dt><code><span>String</span></code></dt>
-                                        <dd><p>Translated sentence.</p>
-                                        </dd>
-                            </dl>
                           </div>
                         </div>
                       </li>
@@ -4258,6 +4328,15 @@ is left empty, so this function will return the original strings always.</p>
               </ul>
             </li>
             <li class="toggler--collapsed">
+              <div class="tree__item__wrapper" data-ln="module:table/tablenavigation"><a class="tree__item--module tree__item__text" href="module_table_tablenavigation.html">tablenavigation</a>
+              </div>
+              <ul>
+                <li><a href="module_table_tablenavigation-TableNavigation.html">
+                    <div class="tree__item__wrapper" data-ln="module:table/tablenavigation~TableNavigation"><span class="tree__item--class tree__item__text">TableNavigation</span></div></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toggler--collapsed">
               <div class="tree__item__wrapper" data-ln="module:table/tableproperties"><a class="tree__item--module tree__item__text" href="module_table_tableproperties.html">tableproperties</a>
               </div>
               <ul>
@@ -5616,8 +5695,14 @@ is left empty, so this function will return the original strings always.</p>
             <li><a href="module_utils_tomap.html">
                 <div class="tree__item__wrapper" data-ln="module:utils/tomap"><span class="tree__item--module tree__item__text">tomap</span></div></a>
             </li>
-            <li><a href="module_utils_translation-service.html">
-                <div class="tree__item__wrapper" data-ln="module:utils/translation-service"><span class="tree__item--module tree__item__text">translation-service</span></div></a>
+            <li class="toggler--collapsed">
+              <div class="tree__item__wrapper" data-ln="module:utils/translation-service"><a class="tree__item--module tree__item__text" href="module_utils_translation-service.html">translation-service</a>
+              </div>
+              <ul>
+                <li><a href="module_utils_translation-service-Message.html">
+                    <div class="tree__item__wrapper" data-ln="module:utils/translation-service~Message"><span class="tree__item--typedef tree__item__text">Message</span></div></a>
+                </li>
+              </ul>
             </li>
             <li><a href="module_utils_uid.html">
                 <div class="tree__item__wrapper" data-ln="module:utils/uid"><span class="tree__item--module tree__item__text">uid</span></div></a>
