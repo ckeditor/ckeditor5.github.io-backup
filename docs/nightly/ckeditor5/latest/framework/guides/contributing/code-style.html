@@ -239,7 +239,7 @@
           <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Framework</a>
           </div>
           <h1 class="main__content-title"><img src="../../../../../assets/1.2.4/img/book.svg" alt="guide">Code style
-          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#general">General</a></li><li><a href="#whitespace">Whitespace</a></li><li><a href="#indentation">Indentation</a></li><li><a href="#braces">Braces</a></li><li><a href="#blank-lines">Blank lines</a></li><li><a href="#multi-line-statements-and-calls">Multi-line statements and calls</a></li><li><a href="#strings">Strings</a></li><li><a href="#comments">Comments</a></li><li><a href="#linting">Linting</a></li><li><a href="#visibility-levels">Visibility levels</a><ol><li><a href="#accessibility">Accessibility</a></li></ol></li><li><a href="#getters">Getters</a></li><li><a href="#order-within-class-definition">Order within class definition</a></li><li><a href="#tests">Tests</a></li><li><a href="#naming">Naming</a><ol><li><a href="#javascript-code-names">JavaScript code names</a><ol><li><a href="#private-properties-and-methods">Private properties and methods</a></li><li><a href="#methods-and-functions">Methods and functions</a></li><li><a href="#properties-and-variables">Properties and variables</a></li></ol></li><li><a href="#shortcuts">Shortcuts</a></li><li><a href="#acronyms-and-proper-names">Acronyms and proper names</a></li><li><a href="#css-classes">CSS classes</a></li><li><a href="#id-attributes">ID attributes</a></li><li><a href="#file-names">File names</a><ol><li><a href="#examples">Examples</a></li><li><a href="#standard-files">Standard files</a></li></ol></li></ol></li></ol></nav>
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#general">General</a></li><li><a href="#whitespace">Whitespace</a></li><li><a href="#indentation">Indentation</a></li><li><a href="#braces">Braces</a></li><li><a href="#blank-lines">Blank lines</a></li><li><a href="#multi-line-statements-and-calls">Multi-line statements and calls</a></li><li><a href="#strings">Strings</a></li><li><a href="#comments">Comments</a></li><li><a href="#linting">Linting</a></li><li><a href="#visibility-levels">Visibility levels</a><ol><li><a href="#accessibility">Accessibility</a></li></ol></li><li><a href="#getters">Getters</a></li><li><a href="#order-within-class-definition">Order within class definition</a></li><li><a href="#tests">Tests</a><ol><li><a href="#test-organization">Test organization</a></li><li><a href="#test-implementation">Test implementation</a></li></ol></li><li><a href="#naming">Naming</a><ol><li><a href="#javascript-code-names">JavaScript code names</a><ol><li><a href="#private-properties-and-methods">Private properties and methods</a></li><li><a href="#methods-and-functions">Methods and functions</a></li><li><a href="#properties-and-variables">Properties and variables</a></li></ol></li><li><a href="#shortcuts">Shortcuts</a></li><li><a href="#acronyms-and-proper-names">Acronyms and proper names</a></li><li><a href="#css-classes">CSS classes</a></li><li><a href="#id-attributes">ID attributes</a></li><li><a href="#file-names">File names</a><ol><li><a href="#examples">Examples</a></li><li><a href="#standard-files">Standard files</a></li></ol></li></ol></li></ol></nav>
 <p><a href="development-environment.html">CKEditor 5 development environment</a> has ESLint enabled both as a pre-commit hook and on CI. This means that code style issues are detected automatically. Additionally, <code>.editorconfig</code> files are present in every repository to automatically adjust your IDEs settings (if it is configured to read them).</p>
 <p>Here comes a quick summary of these rules.</p>
 <h2 id="general"><a class="headerlink" href="#general">#</a> General</h2>
@@ -617,7 +617,8 @@ function doSomething() {
 </ol>
 <p>The order within each group is left for the implementor.</p>
 <h2 id="tests"><a class="headerlink" href="#tests">#</a> Tests</h2>
-<p>There are some special rules for tests.</p>
+<p>There are some special rules and tips for tests.</p>
+<h3 id="test-organization"><a class="headerlink" href="#test-organization">#</a> Test organization</h3>
 <ul>
 <li>
 <p>Always use an outer <code>describe()</code> in a test file. Do not allow any globals, especially hooks (<code>beforeEach()</code>, <code>after()</code>, etc.) outside the outermost <code>describe()</code>.</p>
@@ -632,25 +633,41 @@ function doSomething() {
     // ...
 } );
 </code></pre>
-<p>Using titles like &#x201C;utils&#x201D; is not fine as there are multiple utils in the entire project. &#x201C;Table utils&#x201D; would be better.</p>
+<p>Using titles like <em>&#x201C;utils&#x201D;</em> is not fine as there are multiple utils in the entire project. <em>&#x201C;Table utils&#x201D;</em> would be better.</p>
 </li>
 <li>
-<p>Test descriptions (<code>it()</code>) should be written like documentation (what you do and what should happen), e.g. &#x201C;the foo dialog closes when the X button is clicked&#x201D;. Also, &#x2018;&#x2026;case 1&#x2019;, &#x2018;&#x2026;case 2&#x2019; in test descriptions are not helpful.</p>
+<p>Test descriptions (<code>it()</code>) should be written like documentation (what you do and what should happen), e.g. <em>&#x201C;the foo dialog closes when the X button is clicked&#x201D;</em>. Also, <em>&#x201C;&#x2026;case 1&#x201D;</em>, <em>&#x201C;&#x2026;case 2&#x201D;</em> in test descriptions are not helpful.</p>
 </li>
 <li>
-<p>Avoid covering multiple cases under one <code>it()</code>. It is OK to have multiple assertions in one test, but not to test e.g. how method <code>foo()</code> works when it is called with 1, then with 2, then 3, etc. There should be a separate test for each case.</p>
+<p>Avoid test descriptions like <em>&#x201C;does not crash when two ranges get merged&#x201D;</em> &#x2014; instead explain what is actually expected to happen. For instance: <em>&#x201C;leaves 1 range when two ranges get merged&#x201D;</em>.</p>
 </li>
 <li>
 <p>Most often, using words like &#x201C;correctly&#x201D;, &#x201C;works fine&#x201D; is a code smell. Thing about the requirements &#x2014; when writing them you do not say that feature X should &#x201C;work fine&#x201D;. You document how it should work.</p>
 </li>
 <li>
+<p>Ideally, it should be possible to recreate an algorithm just by reading the test descriptions.</p>
+</li>
+<li>
+<p>Avoid covering multiple cases under one <code>it()</code>. It is OK to have multiple assertions in one test, but not to test e.g. how method <code>foo()</code> works when it is called with 1, then with 2, then 3, etc. There should be a separate test for each case.</p>
+</li>
+<li>
 <p>Every test should clean after itself, including destroying all editors and removing all elements that have been added.</p>
 </li>
+</ul>
+<h3 id="test-implementation"><a class="headerlink" href="#test-implementation">#</a> Test implementation</h3>
+<ul>
 <li>
-<p>Avoid using real timeouts. Use <a href="https://sinonjs.org/releases/v9.0.1/fake-timers/" target="_blank" rel="noopener">fake timers</a> instead <strong>when possible</strong>. Timeouts make a test really slow.</p>
+<p>Avoid using real timeouts. Use <a href="https://sinonjs.org/releases/v9.0.1/fake-timers/" target="_blank" rel="noopener">fake timers</a> instead <strong>when possible</strong>. Timeouts make tests really slow.</p>
 </li>
 <li>
-<p>However, thinking about slow &#x2014; do not overoptimize (especially that performance is not a priority in tests). In most cases it is completely fine (and hence recommended) to create a separate editor for every <code>it()</code>.</p>
+<p>However &#x2014; do not overoptimize (especially that performance is not a priority in tests). In most cases it is completely fine (and hence recommended) to create a separate editor for every <code>it()</code>.</p>
+</li>
+<li>
+<p>We aim at having 100% coverage of <em>all distinctive scenarios</em>. Covering 100% branches in the code is not the goal here &#x2014; it is a byproduct of covering real scenarios.</p>
+<p>Think about this &#x2014; when you fix a bug by adding a parameter to an existing function call you do not affect code coverage (that line was called anyway). However, you had a bug, meaning that your test suite did not cover it. Therefore, a test must be created for that code change.</p>
+</li>
+<li>
+<p>It should be <code>expect( x ).to.equal( y )</code>. <strong>NOT</strong>: <s><code>expect( x ).to.be.equal( y )</code></s>.</p>
 </li>
 </ul>
 <h2 id="naming"><a class="headerlink" href="#naming">#</a> Naming</h2>
