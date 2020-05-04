@@ -216,23 +216,23 @@
     <main class="main">
       <section class="main__content formatted">
         <div class="main__content-inner">
-          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5-select-all/blob/master/docs/features/select-all.md" title="Contribute to this guide"><img src="../../../assets/1.2.4/img/edit.svg" alt="Contribute to this guide"></a>
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/features/select-all.md" title="Contribute to this guide"><img src="../../../assets/1.2.4/img/edit.svg" alt="Contribute to this guide"></a>
           </div>
           <div class="rwd-breadcrumbs"><a href="../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="index.html">Features</a>
           </div>
           <h1 class="main__content-title"><img src="../../../assets/1.2.4/img/book.svg" alt="guide">Select all
           </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#demo">Demo</a></li><li><a href="#installation">Installation</a></li><li><a href="#common-api">Common API</a></li><li><a href="#contribute">Contribute</a></li></ol></nav>
-<p>The <a href="../api/module_select-all_selectall-SelectAll.html"><code>SelectAll</code></a> feature allows selecting the entire content of the editor using the <kbd>Ctrl/&#x2318;</kbd>+<kbd>A</kbd> keystroke or a toolbar button.</p>
+<p>The <a href="../api/module_select-all_selectall-SelectAll.html"><code>SelectAll</code></a> feature allows selecting the entire content of the WYSIWYG editor using the <kbd>Ctrl/&#x2318;</kbd>+<kbd>A</kbd> keystroke or the toolbar button.</p>
 <h2 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h2>
 <p>Press <kbd>Ctrl/&#x2318;</kbd>+<kbd>A</kbd> or use the toolbar button to select the entire content of the editor. Note that when editing an image caption, the selection will only expand to the boundaries of the caption.</p>
 <div class="live-snippet"><div id="editor">
 	<h2>The three greatest things you learn from traveling</h2>
 
-	<p>Like all the great things on earth traveling teaches us by example. Here are some of the most precious lessons I’ve learned over the years of traveling.</p>
-
 	<figure class="image image-style-side"><img src="../assets/img/volcano.jpg" alt="A lone wanderer looking at Mount Bromo volcano in Indonesia.">
 		<figcaption>Leaving your comfort zone might lead you to such beautiful sceneries like this one.</figcaption>
 	</figure>
+
+	<p>Like all the great things on earth traveling teaches us by example. Here are some of the most precious lessons I’ve learned over the years of traveling.</p>
 
 	<h3>Appreciation of diversity</h3>
 
@@ -242,7 +242,7 @@
 <h2 id="installation"><a class="headerlink" href="#installation">#</a> Installation</h2>
 <div class="info-box notice notice__info"><p>This feature is enabled by default in all builds (loaded by the <a href="../api/module_essentials_essentials-Essentials.html"><code>Essentials</code></a> plugin). The installation instructions are for developers interested in building their own, custom rich text editor.</p></div>
 <p>To add this feature to your editor, install the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-select-all" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-select-all</code></a> package:</p>
-<pre class="highlight"><code class="bash">npm install --save @ckeditor/ckeditor5-select-all
+<pre class="highlight"><code class>npm install --save @ckeditor/ckeditor5-select-all
 </code></pre>
 <p>Then add the <code>SelectAll</code> plugin to your plugin list:</p>
 <pre class="highlight"><code class="js">import SelectAll from &apos;@ckeditor/ckeditor5-select-all/src/selectall&apos;;

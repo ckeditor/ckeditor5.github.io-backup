@@ -239,19 +239,19 @@
           <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Framework</a>
           </div>
           <h1 class="main__content-title"><img src="../../../../../assets/1.2.4/img/book.svg" alt="guide">Git commit message convention
-          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#convention">Convention</a><ol><li><a href="#commit-types">Commit types</a></li><li><a href="#example-commits">Example commits</a></li></ol></li><li><a href="#handling-pull-requests">Handling pull requests</a><ol><li><a href="#giving-credit">Giving credit</a></li></ol></li></ol></nav>
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#convention">Convention</a><ol><li><a href="#commit-types">Commit types</a></li><li><a href="#package-name">Package name</a></li><li><a href="#example-commits">Example commits</a></li></ol></li><li><a href="#handling-pull-requests">Handling pull requests</a><ol><li><a href="#giving-credit">Giving credit</a></li></ol></li></ol></nav>
 <p>Every commit made <em>directly</em> to the <code>master</code> branch must follow the below convention. Based on commits in the <code>master</code> branch CKEditor 5 release tools will generate changelog entries for the current release.</p>
 <div class="info-box notice"><p>Commits in the ticket branches are not analyzed for the changelog and do not have to follow any specific convention (other than finishing sentences with periods). In case of ticket branches, <strong>only merge commits are analyzed</strong>.</p><p>Therefore, this guide is mainly targeted at core team members. However, it may help you understand how to write a suggested commit message when creating a pull request for CKEditor 5.</p></div>
 <h2 id="convention"><a class="headerlink" href="#convention">#</a> Convention</h2>
 <p>Commit message template:</p>
-<pre class="highlight"><code class>Type: A short sentence about the commit. Closes #XXX.
+<pre class="highlight"><code class>Type (package-name): A short sentence about the commit. Closes #XXX.
+
+Type (other-package-name): If the change affects more than one package, it&apos;s possible to put multiple entries at once. Closes #YYY.
 
 Optional description.
 
-NOTE: Special note to be marked in the changelog.
-
 BREAKING CHANGE: If any breaking changes were done, they need to be listed here.
-BREAKING CHANGE: Another breaking change if needed. Closes #YYY.
+BREAKING CHANGE: Another breaking change if needed. Closes #ZZZ.
 </code></pre>
 <h3 id="commit-types"><a class="headerlink" href="#commit-types">#</a> Commit types</h3>
 <table>
@@ -281,12 +281,6 @@ BREAKING CHANGE: Another breaking change if needed. Closes #YYY.
 <td><code>patch</code></td>
 <td>An enhancement &#x2014; when it is neither a bug fix nor a feature. Example: public API refactoring. Use it also if you do not want to admit that it was a bug &#x1F609;.</td>
 <td>Visible</td>
-</tr>
-<tr>
-<td>Code style</td>
-<td><code>patch</code></td>
-<td>Our beloved code style improvements (used in the broad meaning of general code quality).</td>
-<td>Hidden</td>
 </tr>
 <tr>
 <td>Docs</td>
@@ -321,74 +315,63 @@ BREAKING CHANGE: Another breaking change if needed. Closes #YYY.
 </tbody>
 </table>
 <p>Each commit can contain additional notes which will be inserted into the changelog:</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Is backward compatible?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>NOTE</code></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><code>BREAKING CHANGES</code> or <code>BREAKING CHANGE</code></td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p>If any visible change contains the <code>BREAKING CHANGE</code> note, the next release will be marked as <code>major</code> automatically.</p>
+<ul>
+<li><code>MAJOR BREAKING CHANGE</code> (alias: <code>BREAKING CHANGE</code>),</li>
+<li><code>MINOR BREAKING CHANGE</code>.</li>
+</ul>
+<p>If any change contains the <code>MAJOR BREAKING CHANGE</code> note, the next release will be marked as <code>major</code> automatically.</p>
+<p>For reference on how to identify minor or major breaking change see the <a href="../support/versioning-policy.html">versioning policy guide</a>.</p>
+<h3 id="package-name"><a class="headerlink" href="#package-name">#</a> Package name</h3>
+<p>Most commits are related to one or more packages. Each affected package should be listed in parenthesis following the commit type. A package that was the most impacted by the change should be listed first.</p>
+<p>It is, however, possible to skip this part if many packages are affected. This is a typically indication that this is a generic change and having all the packages listed would reduce changelog readability.</p>
+<p>The package name is based on npm package name, however it has the <code>@ckeditor/ckeditor(5)-</code> prefix stripped.</p>
+<p>If your change is related to the main package only, use <code>ckeditor5</code> as the package name.</p>
 <h3 id="example-commits"><a class="headerlink" href="#example-commits">#</a> Example commits</h3>
 <p>A new feature without any breaking changes.</p>
-<pre class="highlight"><code class>Feature: Added support for RTL languages. Closes #1.
+<pre class="highlight"><code class>Feature (ui): Added support for RTL languages. Closes #1.
 
 RTL content will now be rendered correctly.
-
-NOTE: Make sure to set `config.contentDirection` correctly.
 </code></pre>
-<p>A bug fix for an existing feature (closes two tickets):</p>
+<p>A generic bug fix for an existing feature that affects many packages (closes two tickets):</p>
 <pre class="highlight"><code class>Fix: The editor will be great again. Closes #3. Closes #4.
 </code></pre>
 <p>Commit with updated documentation:</p>
-<pre class="highlight"><code class>Docs: Updated the README.
+<pre class="highlight"><code class>Docs (link): Updated the README.
 </code></pre>
-<p>Commit which provides or changes the tests:</p>
-<pre class="highlight"><code class>Tests: Introduced missing tests. Closes #5.
+<p>Commit that provides or changes the tests:</p>
+<pre class="highlight"><code class>Tests (widget): Introduced missing tests. Closes #5.
 </code></pre>
-<p>An enhancement which is not backward compatible. Public API was changed:</p>
-<pre class="highlight"><code class>Other: Extracted `utils.moo()` to a separate package. Closes #9.
+<p>An improvement that is not backward compatible and sent by a non-core contributor. Public API was changed:</p>
+<pre class="highlight"><code class>Other (utils): Extracted the `utils.foo()` to a separate package. Closes #9.
 
-BREAKING CHANGE: The `util.moo()` method is now available in the `moo` package. See #9.
+Feature (engine): Introduced the `engine.foo()` method. Closes #9.
+
+MAJOR BREAKING CHANGE: The `utils.foo()` method was moved to the `engine` package. See #9.
 </code></pre>
 <p>For the commits shown above the changelog will look like this:</p>
 <pre class="highlight"><code class="md">Changelog
 =========
 
-## [1.0.0](https://github.com/ckeditor/ckeditor5-dev/compare/v1.0.0...v0.0.1) (2017-01-04)
+## [1.0.0](https://github.com/ckeditor/ckeditor5/compare/v1.0.0...v0.0.1) (2017-01-04)
 
-### Bug fixes
+### MAJOR BREAKING CHANGES [&#x2139;&#xFE0F;](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/support/versioning-policy.html#major-and-minor-breaking-changes)
 
-* The editor will be great again. Closes [#3](https://github.com/ckeditor/ckeditor5-dev/issue/3). Closes [#4](https://github.com/ckeditor/ckeditor5-dev/issue/4). ([a0b4ce8](https://github.com/ckeditor/ckeditor5-dev/commit/a0b4ce8))
-
-### Other changes
-
-* Extracted `utils.moo()` to a separate package. Thanks to [@CKEditor](https://github.com/CKEditor). ([e8cc04f](https://github.com/ckeditor/ckeditor5-dev/commit/e8cc04f))
+* The `utils.foo()` method was moved to the `engine` package. See #9. See [#9](https://github.com/ckeditor/ckeditor5/issue/9).
 
 ### Features
 
-* Added support for RTL languages. Closes [#1](https://github.com/ckeditor/ckeditor5-dev/issue/1). ([adc59ed](https://github.com/ckeditor/ckeditor5-dev/commit/adc59ed))
+* **[engine](http://npmjs.com/package/@ckeditor/ckeditor5-engine)**: Introduced the `engine.foo()` method. Thanks to [@CKEditor](https://github.com/CKEditor). Closes [#9](https://github.com/ckeditor/ckeditor5/issue/9). ([e8cc04f](https://github.com/ckeditor/ckeditor5/commit/e8cc04f))
+* **[ui](http://npmjs.com/package/@ckeditor/ckeditor5-ui)**: Added support for RTL languages. Closes [#1](https://github.com/ckeditor/ckeditor5/issue/1). ([adc59ed](https://github.com/ckeditor/ckeditor5/commit/adc59ed))
 
    RTL content will now be rendered correctly.
 
-### BREAKING CHANGES
+### Bug fixes
 
-* The `util.moo()` method is now available in the `moo` package. See [#9](https://github.com/ckeditor/ckeditor5-dev/issue/9).
+* The editor will be great again. Closes [#3](https://github.com/ckeditor/ckeditor5/issue/3). Closes [#4](https://github.com/ckeditor/ckeditor5/issue/4). ([a0b4ce8](https://github.com/ckeditor/ckeditor5/commit/a0b4ce8))
 
-### NOTE
+### Other changes
 
-* Make sure to set `config.contentDirection` correctly.
+* **[utils](http://npmjs.com/package/@ckeditor/ckeditor5-utils)**: Extracted the `utils.foo()` to a separate package. Thanks to [@CKEditor](https://github.com/CKEditor). ([e8cc04f](https://github.com/ckeditor/ckeditor5/commit/e8cc04f))
 </code></pre>
 <h2 id="handling-pull-requests"><a class="headerlink" href="#handling-pull-requests">#</a> Handling pull requests</h2>
 <p>When making a pull request its author may (it is recommended in the pull request template) propose a merge commit message.</p>
@@ -407,7 +390,7 @@ BREAKING CHANGE: The `util.moo()` method is now available in the `moo` package. 
 <p><img src="../../../assets/img/closing-a-pr.gif" data-lightbox="true" alt="Screencast how to copy a source version of the suggested commit message when closing a PR."></p>
 <h3 id="giving-credit"><a class="headerlink" href="#giving-credit">#</a> Giving credit</h3>
 <p>When closing a non-core contributor&#x2019;s PR make sure to add information about the contributor to the commit message. For example:</p>
-<pre class="highlight"><code class>Feature: Added support for RTL languages. Closes #1.
+<pre class="highlight"><code class>Feature (ui): Added support for RTL languages. Closes #1.
 
 Thanks to @someone!
 </code></pre>
