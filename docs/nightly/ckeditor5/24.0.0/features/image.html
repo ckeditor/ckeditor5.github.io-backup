@@ -28,9 +28,7 @@
     <link rel="stylesheet" href="../assets/styles.css" type="text/css">
     <link rel="stylesheet" href="../snippets/features/build-image-source/snippet.css" type="text/css" data-cke="true">
     <link rel="stylesheet" href="../assets/snippet-styles.css" type="text/css" data-cke="true">
-    <link rel="stylesheet" href="../../../../../node_modules/tippy.js/dist/tippy.css" type="text/css" data-cke="true">
-    <link rel="stylesheet" href="../../../../../node_modules/tippy.js/themes/light-border.css" type="text/css" data-cke="true">
-    <link rel="stylesheet" href="../assets/tour-balloon.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../snippets/assets.css" type="text/css" data-cke="true">
     <script>
       ( function() {
       	'use strict';
@@ -245,7 +243,7 @@
 <li><a href="../api/module_image_imagetextalternative-ImageTextAlternative.html"><code>ImageTextAlternative</code></a> adds support for adding text alternative.</li>
 <li><a href="../api/module_image_imageupload-ImageUpload.html"><code>ImageUpload</code></a> adds support for <a href="image-upload/image-upload.html">uploading dropped or pasted images</a>.</li>
 <li><a href="../api/module_image_imageinsert-ImageInsert.html"><code>ImageInsert</code></a> adds support for <a href="#inserting-images-via-source-url">inserting images via URL</a> and other custom integrations.</li>
-<li><a href="../api/module_image_autoimage-AutoImage.html"><code>AutoImage</code></a> adds support for <a href="#inserting-images-via-pasting-url-into-editor">inserting images via pasting URL into editor</a>.</li>
+<li><a href="../api/module_image_autoimage-AutoImage.html"><code>AutoImage</code></a> adds support for <a href="#inserting-images-via-pasting-url-into-editor">inserting images via pasting a URL into the editor</a>.</li>
 <li><a href="../api/module_image_imageresize-ImageResize.html"><code>ImageResize</code></a> adds support for <a href="#resizing-images">resizing images</a>.</li>
 <li><a href="../api/module_link_linkimage-LinkImage.html"><code>LinkImage</code></a> adds support for <a href="#linking-images">linking images</a>.</li>
 </ul>
@@ -318,7 +316,7 @@ ClassicEditor
 </div>
 </div>
 <h2 id="inserting-images-via-pasting-url-into-editor"><a class="headerlink" href="#inserting-images-via-pasting-url-into-editor">#</a> Inserting images via pasting URL into editor</h2>
-<p>The <a href="../api/module_image_autoimage-AutoImage.html"><code>AutoImage</code></a> plugin recognizes image links in the pasted content and embeds them shortly after they are injected into the document to speed up the editing. Accepted image extensions: jpg, jpeg, png, gif, ico.</p>
+<p>The <a href="../api/module_image_autoimage-AutoImage.html"><code>AutoImage</code></a> plugin recognizes image links in the pasted content and embeds them shortly after they are injected into the document to speed up the editing. Accepted image extensions are: <code>jpg</code>, <code>jpeg</code>, <code>png</code>, <code>gif</code>, <code>ico</code>.</p>
 <div class="info-box notice"><p>The image URL must be the only content pasted to be properly embedded. Multiple links (<code>&quot;http://image.url http://another.image.url&quot;</code>) as well as bigger chunks of content (<code>&quot;This link http://image.url will not be auto&#x2013;embedded when pasted.&quot;</code>) are ignored.</p></div>
 <p>If the automatic embedding was unexpected, for instance when the link was meant to remain in the content as text, simply undo the action (by clicking the &#x201C;Undo&#x201D; button in the toolbar or using the <kbd>Ctrl/&#x2318;</kbd>+<kbd>Z</kbd> keystrokes).</p>
 <p>You can paste the image URL directly into the editor content, and it will be automatically embedded.</p>
@@ -899,7 +897,7 @@ ClassicEditor
       </div>
     </main>
     <footer class="footer footer--bordered">
-      <p>&copy; 2003-2020 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+      <p>&copy; 2003-2021 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
 docsearch({
@@ -908,10 +906,8 @@ transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_rank
 });
 </script>
     <script src="../assets/snippet.js"></script>
+    <script src="../snippets/assets.js"></script>
     <script src="../snippets/features/build-image-source/snippet.js"></script>
-    <script src="../../../../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-    <script src="../../../../../node_modules/tippy.js/dist/tippy-bundle.umd.min.js"></script>
-    <script src="../assets/tour-balloon.js"></script>
     <script src="../snippets/features/image/snippet.js"></script>
     <script src="../snippets/features/image-toolbar/snippet.js"></script>
     <script src="../snippets/features/image-insert-via-url/snippet.js"></script>

@@ -28,9 +28,7 @@
     <link rel="stylesheet" href="../assets/styles.css" type="text/css">
     <link rel="stylesheet" href="../snippets/features/mathtype/snippet.css" type="text/css" data-cke="true">
     <link rel="stylesheet" href="../assets/snippet-styles.css" type="text/css" data-cke="true">
-    <link rel="stylesheet" href="../../../../../node_modules/tippy.js/dist/tippy.css" type="text/css" data-cke="true">
-    <link rel="stylesheet" href="../../../../../node_modules/tippy.js/themes/light-border.css" type="text/css" data-cke="true">
-    <link rel="stylesheet" href="../assets/tour-balloon.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../snippets/assets.css" type="text/css" data-cke="true">
     <script>
       ( function() {
       	'use strict';
@@ -286,16 +284,16 @@ ClassicEditor
 <h2 id="customizing-mathtype-service"><a class="headerlink" href="#customizing-mathtype-service">#</a> Customizing MathType service</h2>
 <p>It is possible to use different services for MathType support. There are several ways to deploy it in the CKEditor 5 environment. The following instructions will allow you to customize MathType Web Integration services for CKEditor 5.</p>
 <h3 id="java"><a class="headerlink" href="#java">#</a> Java</h3>
-<p>To install the Java service follow the steps below:</p>
+<p>To install the Java service, follow the steps below:</p>
 <ol>
 <li>
 <p>Download the <a href="http://www.wiris.com/en/plugins/services/download" target="_blank" rel="noopener">MathType Web Integration Services - Java</a> package.</p>
 </li>
 <li>
-<p>Deploy the <strong>pluginwiris_engine war</strong> file.</p>
+<p>Deploy the <code>pluginwiris_engine</code> war file.</p>
 </li>
 <li>
-<p>Add <code>mathTypeParameters</code> to CKEditor5 with the configuration shown below:</p>
+<p>Add <code>mathTypeParameters</code> to CKEditor 5 with the configuration shown below:</p>
 <pre class="highlight"><code class="js">ClassicEditor.create( document.querySelector( &apos;#example&apos; ), {
         plugins: [ ..., MathType, ... ],
         toolbar: {
@@ -307,7 +305,7 @@ ClassicEditor
             ]
         },
         language: &apos;en&apos;,
-        // MathType Parameters
+        // MathType parameters.
         mathTypeParameters : {
             serviceProviderProperties : {
                 URI : &apos;/pluginwiris_engine/app/configurationjs&apos;,
@@ -319,16 +317,16 @@ ClassicEditor
 </li>
 </ol>
 <h3 id="php"><a class="headerlink" href="#php">#</a> PHP</h3>
-<p>To install the PHP service follow the steps below:</p>
+<p>To install the PHP service, follow the steps below:</p>
 <ol>
 <li>
 <p>Download the <a href="http://www.wiris.com/en/plugins/services/download" target="_blank" rel="noopener">MathType Web Integration Services - PHP</a> package.</p>
 </li>
 <li>
-<p>Copy the <strong>generic_wiris/integration</strong> folder into your project. In this example it was assumed the services are located at <em>DOCUMENT_ROOT/php-services/</em></p>
+<p>Copy the <code>generic_wiris/integration</code> folder into your project. In this example it was assumed the services are located at <code>DOCUMENT_ROOT/php-services/</code>.</p>
 </li>
 <li>
-<p>Add <code>mathTypeParameters</code> to CKEditor5 with the following configuration:</p>
+<p>Add <code>mathTypeParameters</code> to CKEditor 5 with the following configuration:</p>
 <pre class="highlight"><code class="js">ClassicEditor.create( document.querySelector( &apos;#example&apos; ), {
         plugins: [ ..., MathType, ... ],
         toolbar: {
@@ -340,7 +338,7 @@ ClassicEditor
             ]
         },
         language: &apos;en&apos;,
-        // MathType Parameters
+        // MathType parameters.
         mathTypeParameters : {
             serviceProviderProperties : {
                 URI : &apos;http://localhost/php-services/integration&apos;,
@@ -352,16 +350,16 @@ ClassicEditor
 </li>
 </ol>
 <h3 id="net"><a class="headerlink" href="#net">#</a> .NET</h3>
-<p>To install the .NET service follow the steps below:</p>
+<p>To install the .NET service, follow the steps below:</p>
 <ol>
 <li>
 <p>Download the <a href="http://www.wiris.com/en/plugins/services/download" target="_blank" rel="noopener">MathType Web Integration Services - Aspx</a> package.</p>
 </li>
 <li>
-<p>Copy the <strong>generic_wiris/integration</strong> folder into your project. In this example it was assumed the services are located at <em>DOCUMENT_ROOT/aspx-services/</em></p>
+<p>Copy the <code>generic_wiris/integration</code> folder into your project. In this example it was assumed the services are located at <code>DOCUMENT_ROOT/aspx-services/</code>.</p>
 </li>
 <li>
-<p>Add <code>mathTypeParameters</code> to CKEditor5 with this configuration:</p>
+<p>Add <code>mathTypeParameters</code> to CKEditor 5 with this configuration:</p>
 <pre class="highlight"><code class="js">ClassicEditor.create( document.querySelector( &apos;#example&apos; ), {
         plugins: [ ..., MathType, ... ],
         toolbar: {
@@ -373,7 +371,7 @@ ClassicEditor
             ]
         },
         language: &apos;en&apos;,
-        // MathType Parameters
+        // MathType parameters.
         mathTypeParameters : {
             serviceProviderProperties : {
                 URI : &apos;http://localhost/aspx-services/integration&apos;,
@@ -385,18 +383,18 @@ ClassicEditor
 </li>
 </ol>
 <h3 id="ruby-on-rails"><a class="headerlink" href="#ruby-on-rails">#</a> Ruby on Rails</h3>
-<p>To install the Ruby on Rails service follow the steps below:</p>
+<p>To install the Ruby on Rails service, follow the steps below:</p>
 <ol>
 <li>
 <p>Download the <a href="http://www.wiris.com/en/plugins/services/download" target="_blank" rel="noopener">MathType Web Integration Services - Ruby on Rails</a> package.</p>
 </li>
 <li>
-<p>Instal the <strong>wirispluginengine.gem</strong> gem.</p>
-<pre class="highlight"><code class>    gem install -l wirispluginengine.gem
+<p>Instal the <code>wirispluginengine.gem</code> gem.</p>
+<pre class="highlight"><code class>gem install -l wirispluginengine.gem
 </code></pre>
 </li>
 <li>
-<p>Add <code>mathTypeParameters</code> to CKEditor5 with the configuration below:</p>
+<p>Add <code>mathTypeParameters</code> to CKEditor 5 with the configuration below:</p>
 <pre class="highlight"><code class="js">ClassicEditor.create( document.querySelector( &apos;#example&apos; ), {
         plugins: [ ..., MathType, ... ],
         toolbar: {
@@ -408,7 +406,7 @@ ClassicEditor
             ]
         },
         language: &apos;en&apos;,
-        // MathType Parameters
+        // MathType parameters.
         mathTypeParameters : {
             serviceProviderProperties : {
                 URI : &apos;/wirispluginengine/integrationn&apos;,
@@ -535,7 +533,7 @@ ClassicEditor
       </div>
     </main>
     <footer class="footer footer--bordered">
-      <p>&copy; 2003-2020 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+      <p>&copy; 2003-2021 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
 docsearch({
@@ -544,9 +542,7 @@ transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_rank
 });
 </script>
     <script src="../assets/snippet.js"></script>
+    <script src="../snippets/assets.js"></script>
     <script src="../snippets/features/mathtype/snippet.js"></script>
-    <script src="../../../../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-    <script src="../../../../../node_modules/tippy.js/dist/tippy-bundle.umd.min.js"></script>
-    <script src="../assets/tour-balloon.js"></script>
   </body>
 </html>
